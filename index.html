@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1111</title>
+</head>
+<body>
+  
+</body>
+  <div id="root"></div>
+  <form action="http://localhost:3002/test">
+    <input name="ab" />
+    <button type="submit">1111</button>
+  </form>
+  <script src="./dist/5.js"></script>
+  <script>
+    // TEST form表单是可以跨域的
+    fetch('http://localhost:3002/test').then(res => {
+      console.log(res)
+    })
+      .catch(e=>console.log(e))
+  </script>
+</html>
