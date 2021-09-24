@@ -14,6 +14,11 @@ module.exports = {
   devServer: {
     port: 9000,
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './utils'), // 要绝对路径
+    },
+  },
   devtool: 'source-map',
   module: {
     rules: [
@@ -22,7 +27,7 @@ module.exports = {
         use: {
           loader: path.resolve(__dirname, './loader/loader.js'),
         },
-        include: './index.js',
+        include: path.resolve(__dirname, './page/index.js'),
       },
       {
         test: /\.tsx?/,
