@@ -33,7 +33,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve --open"
+    "dev": "webpack serve --open --config config/webpack.dev.js",
+    "devserver": "webpack-dev-server --hot --open --config config/webpack.dev.js"
   },
   "author": "",
   "license": "ISC"

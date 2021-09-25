@@ -4,19 +4,23 @@ const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
+// 执行路径
+console.log(path.resolve('/'));
+
 module.exports = {
   mode: 'development',
   // mode: 'production',
-  entry: './page/index.js',
+  entry: path.resolve(__dirname, '../page/index.js'),
   output: {
     filename: '5.js',
   },
-  devServer: {
-    port: 9000,
-  },
+  // devServer: {
+  //   port: 9000,
+  //   // static: './dist',
+  // },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './utils'), // 要绝对路径
+      '@': path.resolve(__dirname, '../utils'), // 要绝对路径
     },
   },
   devtool: 'source-map',
@@ -25,9 +29,9 @@ module.exports = {
       {
         test: /\.js$/,
         use: {
-          loader: path.resolve(__dirname, './loader/loader.js'),
+          loader: path.resolve(__dirname, '../loader/loader.js'),
         },
-        include: path.resolve(__dirname, './page/index.js'),
+        include: path.resolve(__dirname, '../page/index.js'),
       },
       {
         test: /\.tsx?/,
@@ -57,7 +61,7 @@ module.exports = {
     }),
     // new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.html'), // 不给模板它自己会创建一个html模板
+      template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板
     }),
   ],
   optimization: {
