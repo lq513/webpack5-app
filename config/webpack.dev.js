@@ -14,10 +14,25 @@ module.exports = {
   output: {
     filename: '5.js',
   },
-  // devServer: {
-  //   port: 9000,
-  //   // static: './dist',
-  // },
+  devServer: {
+    port: 9000,
+    hot: true,
+    open: true,
+    client: {
+      progress: true,
+    },
+    // contentBase 被static替换，默认public，作用：修改serve路径
+    static: './page',
+    host: 'local-ip', // 域名
+    onListening: (devServer) => {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
+
+      const port = devServer.server.address().port;
+      console.log('Listening on port:', port);
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../utils'), // 要绝对路径
