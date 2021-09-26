@@ -4,7 +4,7 @@ const baseConfig = require('./webpack.base');
 
 module.exports = {
   ...baseConfig,
-  mode: 'development',
+  mode: 'production',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../page/index.html'),
