@@ -19,6 +19,13 @@ module.exports = {
     'react',
     '@typescript-eslint',
   ],
+  settings: {
+    'import/resolver': {
+      webpack: {
+        config: './config/webpack.dev.js',
+      },
+    },
+  },
   rules: {
     'linebreak-style': 0, // 换行符号
   },
