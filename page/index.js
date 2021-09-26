@@ -1,5 +1,4 @@
 import { a } from '@/mod';
-// import { a } from '../utils/mod';
 // import moment from 'moment';
 // const b = require('./a.jpg');
 
