@@ -1,11 +1,12 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../page/index.js'),
+  entry: path.resolve(__dirname, '../page/index.tsx'),
   output: {
     filename: '5.js',
   },
   resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
     alias: {
       '@': path.resolve(__dirname, '../utils'), // 要绝对路径
     },
