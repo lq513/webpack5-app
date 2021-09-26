@@ -1,19 +1,24 @@
+const path = require('path');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const baseConfig = require('./webpack.base');
 
 // 执行路径
 console.log(path.resolve('/'));
 
-module.exports = {
-  mode: 'development',
-  // mode: 'production',
-  entry: path.resolve(__dirname, '../page/index.js'),
-  output: {
-    filename: '5.js',
+baseConfig.module.rules.push({
+  test: /\.js$/,
+  use: {
+    loader: path.resolve(__dirname, '../loader/loader.js'),
   },
+  include: path.resolve(__dirname, '../page/index.js'),
+});
+
+module.exports = {
+  ...baseConfig,
+  mode: 'development',
   devServer: {
     port: 9000,
     hot: true,
@@ -33,42 +38,7 @@ module.exports = {
       console.log('Listening on port:', port);
     },
   },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '../utils'), // 要绝对路径
-    },
-  },
   devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: {
-          loader: path.resolve(__dirname, '../loader/loader.js'),
-        },
-        include: path.resolve(__dirname, '../page/index.js'),
-      },
-      {
-        test: /\.tsx?/,
-        use: 'awesome-typescript-loader',
-      },
-      {
-        test: /\.jsx?$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            // 编译es6语法 && 编译react
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
-        exclude: /node_moudles/,
-      },
-      {
-        test: /(png|jpg|gif)/,
-        loader: 'file-loader',
-      },
-    ],
-  },
   plugins: [
     new webpack.IgnorePlugin({
       resourceRegExp: /^\.\/locale$/,
