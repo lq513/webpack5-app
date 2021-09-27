@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import reactDom from 'react-dom';
 // import { Button } from 'antd-mobile';
 import c from '../public/a.jpg';
-import './index.less';
+import './index.css';
 
-import { a} from '@/mod';
+import { a } from '@/mod';
 
 const A = (props:object) => {
   const [num, setNum] = useState(1);

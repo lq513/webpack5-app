@@ -48,9 +48,7 @@ module.exports = merge(baseConfig, {
       contextRegExp: /moment$/,
     }),
     // new BundleAnalyzerPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板
-    }),
+
   ],
   optimization: {
     minimizer: [

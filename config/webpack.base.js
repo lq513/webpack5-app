@@ -1,10 +1,13 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '../page/index.tsx'),
   output: {
     filename: 'ab[id].js',
+    chunkFilename: 'bundle[name][hash],js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
@@ -16,7 +19,9 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?/,
-        use: 'awesome-typescript-loader',
+        // use: 'awesome-typescript-loader',
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.jsx?$/,
@@ -27,7 +32,11 @@ module.exports = {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
-        exclude: /node_moudles/,
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.less$/i,
@@ -39,7 +48,11 @@ module.exports = {
       },
     ],
   },
-  // plugin: [
-  //   new CopyWebpackPlugin(),
-  // ],
+  plugins: [
+    // new CopyWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      inject: 'body',
+      template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板
+    }),
+  ],
 };
