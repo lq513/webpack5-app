@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { merge } = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,17 +9,19 @@ const baseConfig = require('./webpack.base');
 // 执行路径
 console.log(path.resolve('/'));
 
-baseConfig.module.rules.push({
-  test: /\.js$/,
-  use: {
-    loader: path.resolve(__dirname, '../loader/loader.js'),
-  },
-  include: path.resolve(__dirname, '../page/index.js'),
-});
-
-module.exports = {
-  ...baseConfig,
+module.exports = merge(baseConfig, {
   mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: path.resolve(__dirname, '../loader/loader.js'),
+        },
+        include: path.resolve(__dirname, '../page/index.tsx'),
+      },
+    ],
+  },
   devServer: {
     port: 9000,
     hot: true,
@@ -59,4 +62,4 @@ module.exports = {
       // }),
     ],
   },
-};
+});

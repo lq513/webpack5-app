@@ -1,5 +1,5 @@
 function loader(content) {
-  // console.log(content, 111111)
+  console.log('我是自定义loader');
   return content;
 }
 
