@@ -1,9 +1,10 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '../page/index.tsx'),
   output: {
-    filename: '5.js',
+    filename: 'ab[id].js',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
@@ -29,9 +30,16 @@ module.exports = {
         exclude: /node_moudles/,
       },
       {
-        test: /(png|jpg|gif)/,
+        test: /\.less$/i,
+        use: ['style-loader', 'css-loader', 'less-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
         loader: 'file-loader',
       },
     ],
   },
+  // plugin: [
+  //   new CopyWebpackPlugin(),
+  // ],
 };
