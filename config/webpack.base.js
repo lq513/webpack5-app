@@ -45,12 +45,34 @@ module.exports = {
       },
       {
         test: /\.less$/i,
-        use: [{
-          loader: 'style-loader',
-          options: {
-            'injectType': 'lazyStyleTag',
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              'injectType': 'lazyStyleTag',
+            },
           },
-        }, 'css-loader', 'less-loader'],
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true, // 对所有文件启用 CSS 模块
+              url: {
+                filter: (url, resourcePath) => {
+                  // resourcePath - path to css file
+                  console.log(url, resourcePath, 111111, 'css-loader\n');
+    
+                  // Don't handle `a.jpg` urls
+                  if (url.includes('a.jpg')) {
+                    return false;
+                  }
+    
+                  return true;
+                },
+              },
+            },
+          },
+          'less-loader',
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
