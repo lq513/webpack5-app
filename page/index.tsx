@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import reactDom from 'react-dom';
 // import { Button } from 'antd-mobile';
 import c from '../public/a.jpg';
-import './index.css';
+import styles from './index.lazy.less';
+styles.use();
+console.log(styles, 11111);
 
 import { a } from '@/mod';
 

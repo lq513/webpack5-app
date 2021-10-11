@@ -36,11 +36,21 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [{
+          loader: 'style-loader',
+          options: {
+            'injectType': 'lazyStyleTag',
+          },
+        }, 'css-loader'],
       },
       {
         test: /\.less$/i,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [{
+          loader: 'style-loader',
+          options: {
+            'injectType': 'lazyStyleTag',
+          },
+        }, 'css-loader', 'less-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
