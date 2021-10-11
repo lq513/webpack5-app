@@ -20,6 +20,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    "import",
   ],
   settings: {
     'import/resolver': {

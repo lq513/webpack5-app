@@ -46,12 +46,13 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          {
-            loader: 'style-loader',
-            options: {
-              'injectType': 'lazyStyleTag',
-            },
-          },
+          // {
+          //   loader: 'style-loader',
+          //   options: {
+          //     'injectType': 'lazyStyleTag',
+          //   },
+          // },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
