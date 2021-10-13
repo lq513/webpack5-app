@@ -9,6 +9,7 @@ module.exports = {
     // cacheDirectory 默认路径是 node_modules/.cache/webpack
     cacheDirectory: path.resolve(__dirname, '.temp_cache'),
   },
+  target: 'web',
   entry: {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },
@@ -97,7 +98,19 @@ module.exports = {
       // },
       {
         test: /\.(png|jpg|git$)/,
-        type: 'asset/resource',
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 4 * 1024, // 4kb
+          },
+        },
+        generator: {
+          filename: 'static/[hash][ext][query]', // 图片文件位置/文件名
+        },
+      },
+      {
+        test: /\.txt$/,
+        type: 'asset/source', // 原样输出
       },
     ],
   },

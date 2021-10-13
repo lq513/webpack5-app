@@ -6,6 +6,10 @@ import Home from './home';
 import c from '../common/assets/cat.jpg';
 // const c = require('../public/1.gif').default;
 
+import text from '../common/assets/1.txt';
+
+console.log(import.meta.url, 2222222);
+
 // import 'antd-mobile/dist/antd-mobile.less';
 import styles from './index.less';
 console.log(styles, 222222);
@@ -17,6 +21,7 @@ const A = (props:object) => {
 
   useEffect(() => {
     // a('./cat.jpg');
+
   }, []);
 
   return (
@@ -24,6 +29,7 @@ const A = (props:object) => {
       <div onClick={()=>{ setNum(2); }}>{num}</div>
       <img src={c} />
       <Home/>
+      {text.toString()}
       {/* <Button type="warning">11</Button> */}
     </>
   );
