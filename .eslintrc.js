@@ -25,7 +25,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: './config/webpack.base.js',
+        config: './config/webpack.base.js', // eslint识别别名
       },
     },
   },
@@ -33,3 +33,24 @@ module.exports = {
     'linebreak-style': 0, // 换行符号
   },
 };
+
+// interface ParserOptions {
+//   ecmaFeatures?: {
+//     jsx?: boolean;
+//     globalReturn?: boolean;
+//   };
+//   ecmaVersion?: number | 'latest';
+
+//   jsxPragma?: string | null;
+//   jsxFragmentName?: string | null;
+//   lib?: string[];
+
+//   project?: string | string[];
+//   projectFolderIgnoreList?: string[];
+//   tsconfigRootDir?: string;
+//   extraFileExtensions?: string[];
+//   warnOnUnsupportedTypeScriptVersion?: boolean;
+
+//   program?: import('typescript').Program;
+//   moduleResolver?: string;
+// }

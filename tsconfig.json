@@ -65,7 +65,10 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
-  // "include": [
-  //   "types.d.ts"
-  // ]
+  "include": [
+    "page",
+    "utils",
+    "config",
+    "types.d.ts"
+  ]
 }

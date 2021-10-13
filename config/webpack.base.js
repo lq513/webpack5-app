@@ -3,9 +3,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../page/index.tsx'),
+  // 设置缓存位置
+  cache: {
+    type: 'filesystem',
+    // cacheDirectory 默认路径是 node_modules/.cache/webpack
+    cacheDirectory: path.resolve(__dirname, '.temp_cache'),
+  },
+  entry: {
+    main: path.resolve(__dirname, '../page/index.tsx'),
+  },
   output: {
-    filename: 'ab[id].js',
+    filename: 'ab[hash][id].js',
     chunkFilename: 'bundle[name][hash],js',
     publicPath: '/',
   },
@@ -23,17 +31,17 @@ module.exports = {
         use: 'ts-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.jsx?$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            // 编译es6语法 && 编译react
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
-        exclude: /node_modules/,
-      },
+      // {
+      //   test: /\.jsx?$/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       // 编译es6语法 && 编译react
+      //       presets: ['@babel/preset-env', '@babel/preset-react'],
+      //     },
+      //   },
+      //   exclude: /node_modules/,
+      // },
       {
         test: /\.css$/,
         use: [{
@@ -57,27 +65,39 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true, // 对所有文件启用 CSS 模块
-              url: {
-                filter: (url, resourcePath) => {
-                  // resourcePath - path to css file
-                  console.log(url, resourcePath, 111111, 'css-loader\n');
+              // url: {
+              //   filter: (url, resourcePath) => {
+              //     // resourcePath - path to css file
+              //     console.log(url, resourcePath, 111111, 'css-loader\n');
     
-                  // Don't handle `a.jpg` urls
-                  if (url.includes('a.jpg')) {
-                    return false;
-                  }
+              //     // Don't handle `a.jpg` urls
+              //     if (url.includes('a.jpg')) {
+              //       return false;
+              //     }
     
-                  return true;
-                },
-              },
+              //     return true;
+              //   },
+              // },
             },
           },
           'less-loader',
         ],
       },
+      // {
+      //   test: /\.(png|jpg|gif)$/,
+      //   dependency: { not: ['url'] },
+      //   // loader: 'file-loader',
+      //   use: {
+      //     loader: 'url-loader',
+      //     options: {
+      //       limit: 8124,
+      //     },
+      //   },
+      //   type: 'javascript/auto', // webpack5 stop Asset Module
+      // },
       {
-        test: /\.(png|jpg|gif)$/,
-        loader: 'file-loader',
+        test: /\.(png|jpg|git$)/,
+        type: 'asset/resource',
       },
     ],
   },

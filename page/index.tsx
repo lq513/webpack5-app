@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import reactDom from 'react-dom';
-import { Button } from 'antd-mobile';
+// import { Button } from 'antd-mobile';
 import Home from './home';
 
-import c from '../public/a.jpg';
+import c from '../common/assets/cat.jpg';
+// const c = require('../public/1.gif').default;
 
 // import 'antd-mobile/dist/antd-mobile.less';
 import styles from './index.less';
@@ -15,29 +16,29 @@ const A = (props:object) => {
   const [num, setNum] = useState(1);
 
   useEffect(() => {
-    a('../public/a.jpg');
+    // a('./cat.jpg');
   }, []);
 
   return (
     <>
-      <img src={c} />
       <div onClick={()=>{ setNum(2); }}>{num}</div>
+      <img src={c} />
       <Home/>
-      <Button type="warning">11</Button>
+      {/* <Button type="warning">11</Button> */}
     </>
   );
 };
 
-document.addEventListener('keydown', (oEvent) => {
-  //获取键盘的keyCode值
-  const KeyCode = oEvent.key;
-  // console.log(oEvent, 11111111);
-  //获取ctrl 键对应的事件属性
-  const bCtrlKeyCode = oEvent.ctrlKey || oEvent.metaKey;
-  if ( KeyCode.toLowerCase() === 'u' && bCtrlKeyCode  ) {
-    oEvent.preventDefault();
-    window.location.href = 'https://github.com/lq513/ab';
-  }
-});
+// document.addEventListener('keydown', (oEvent) => {
+//   //获取键盘的keyCode值
+//   const KeyCode = oEvent.key;
+//   // console.log(oEvent, 11111111);
+//   //获取ctrl 键对应的事件属性
+//   const bCtrlKeyCode = oEvent.ctrlKey || oEvent.metaKey;
+//   if ( KeyCode.toLowerCase() === 'u' && bCtrlKeyCode  ) {
+//     oEvent.preventDefault();
+//     window.location.href = 'https://github.com/lq513/ab';
+//   }
+// });
 
 reactDom.render(<A />, document.getElementById('root'));
