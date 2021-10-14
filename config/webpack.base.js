@@ -9,7 +9,7 @@ module.exports = {
     // cacheDirectory 默认路径是 node_modules/.cache/webpack
     cacheDirectory: path.resolve(__dirname, '.temp_cache'),
   },
-  target: 'web',
+  // target: 'web',
   entry: {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },
@@ -22,6 +22,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
     alias: {
       '@': path.resolve(__dirname, '../utils'), // 要绝对路径
+      'common': path.resolve(__dirname, '../common'),
     },
   },
   module: {
