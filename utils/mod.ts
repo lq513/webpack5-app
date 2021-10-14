@@ -4,6 +4,13 @@ const a = (src:string) => {
   ele.innerHTML = `<img src=${src} style="width: 200px"/>`;
   document.body.appendChild(ele);
 };
-const b = () => { console.log(1323432); };
 
-export { a, b };
+const testPromise = (): Promise<string> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('1');
+    }, 1000);
+  });
+};
+
+export { a, testPromise };
