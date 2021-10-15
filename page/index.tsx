@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import reactDom from 'react-dom';
-import Home from './home';
+// import 'core-js/stable';
+import 'regenerator-runtime/runtime';   
 
 // import 'antd-mobile/dist/antd-mobile.less';
 import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 222222);
 
-const A = (props:object) => {
-  const [num, setNum] = useState(1);
+import { testPromise } from '@/mod';
+testPromise();
+const testfn = () => {
+  console.log(1111);
+};
+testfn();
 
+const A = (props:object) => {
   return (
     <>
-      <div onClick={()=>{ setNum(2); }}>{num}</div>
-      <Home/>
     </>
   );
 };
