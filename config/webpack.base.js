@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.tsx?/,
         // use: 'awesome-typescript-loader',
-        use: ['babel-loader', 'ts-loader'],
+        use: ['babel-loader'],
         exclude: /node_modules/,
       },
       // {

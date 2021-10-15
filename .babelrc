@@ -3,12 +3,12 @@
     [
       "@babel/preset-env",
       {
-        // "corejs": "3",
+        "corejs": "3",
         "modules": false,
         "targets": {
           "esmodules": true
         },
-        // "useBuiltIns": "usage" // This option configures how @babel/preset-env handles polyfills.
+        "useBuiltIns": "usage" // This option configures how @babel/preset-env handles polyfills.
       }
     ],
     "@babel/preset-react",
