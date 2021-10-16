@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import reactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 // import 'core-js/stable';
 import 'regenerator-runtime/runtime';   
 
@@ -15,12 +15,18 @@ const testfn = () => {
 };
 testfn();
 
-const A = (props:object) => {
-  return (
-    <>
+class A extends React.Component {
+  componentDidMount() {
+    console.log(this.refs);
+  }
+
+  render() {
+    return (
+      <>
     </>
-  );
-};
+    );
+  }
+}
 
 // document.addEventListener('keydown', (oEvent) => {
 //   //获取键盘的keyCode值
@@ -34,4 +40,4 @@ const A = (props:object) => {
 //   }
 // });
 
-reactDom.render(<A />, document.getElementById('root'));
+ReactDOM.createRoot(document.getElementById('root')).render(<A />);

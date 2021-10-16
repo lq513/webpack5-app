@@ -10,7 +10,7 @@ module.exports = {
     // cacheDirectory 默认路径是 node_modules/.cache/webpack
     cacheDirectory: path.resolve(__dirname, '.temp_cache'),
   },
-  // target: 'web',
+  target: 'web',
   entry: {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },
@@ -35,17 +35,6 @@ module.exports = {
         use: ['babel-loader'],
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.jsx?$/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       // 编译es6语法 && 编译react
-      //       presets: ['@babel/preset-env', '@babel/preset-react'],
-      //     },
-      //   },
-      //   exclude: /node_modules/,
-      // },
       {
         test: /\.css$/,
         use: [{
