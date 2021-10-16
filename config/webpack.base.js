@@ -1,6 +1,5 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,6 +18,7 @@ module.exports = {
     chunkFilename: 'bundle[name][hash],js',
     publicPath: '/',
     path: path.resolve(__dirname, '../dist'),
+    clean: true, // webpack5 替代CleanWebpackPlugin
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
@@ -108,7 +108,6 @@ module.exports = {
   },
   plugins: [
     // new CopyWebpackPlugin(),
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板
