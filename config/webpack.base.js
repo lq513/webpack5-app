@@ -34,6 +34,7 @@ module.exports = {
         // use: 'awesome-typescript-loader',
         use: ['babel-loader'],
         exclude: /node_modules/,
+        sideEffects: false,
       },
       {
         test: /\.css$/,
@@ -113,4 +114,7 @@ module.exports = {
       template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板
     }),
   ],
+  optimization: {
+    usedExports: true,
+  },
 };

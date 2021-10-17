@@ -4,9 +4,10 @@
       "@babel/preset-env",
       {
         "corejs": "3",
+        // "modules": "commonjs",
         "modules": false,
         "targets": {
-          "esmodules": true
+          "esmodules": true // 不会引用core.js 得polyfill了
         },
         "useBuiltIns": "usage" // This option configures how @babel/preset-env handles polyfills.
       }

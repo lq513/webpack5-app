@@ -8,3 +8,25 @@
 8. 建立静态文件夹
 9. 选用ts-loader还是babel处理ts
 10. target: 'web' 打包失败
+
+# babel 是否开启babel
+-|size
+---|:--:
+未esmodules,未引入regenerator-runtime|1361
+未esmodules,引入regenerator-runtime|1387
+esmodules,引入regenerator-runtime|1302
+esmodules,未引入regenerator-runtime|1276
+
+# tree shaking
+
+> -: 未配置
+
+modules|usedExports|sideEffects|生产|测试
+---|:--:|:--:|:--:|---:
+commonjs|true|false|❌|❌
+commonjs|-|false|❌|❌
+false|true|false|✔|✔
+false|-|false|✔|❌
+false|true|-|✔|✔
+
+

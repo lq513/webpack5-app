@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "sideEffects": false,
+  "sideEffects": ["*.css"],
   "dependencies": {
     "antd-mobile": "^2.3.4",
     "core-js": "^3.18.3",
@@ -51,7 +51,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve -c config/webpack.dev.js",
     "devserver": "webpack-dev-server --hot --open --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.pro.js",
+    "build": "webpack --config config/webpack.pro.js --analyze",
     "btest": "webpack --config config/webpack.pro.js --mode development --analyze"
   },
   "author": "",

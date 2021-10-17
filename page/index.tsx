@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 // import 'core-js/stable';
-import 'regenerator-runtime/runtime';   
+// import 'regenerator-runtime/runtime';
 
 // import 'antd-mobile/dist/antd-mobile.less';
 import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 222222);
 
-import { testPromise } from '@/mod';
-testPromise();
+import { a } from '@/mod';
+a('');
 const testfn = () => {
   console.log(1111);
 };
