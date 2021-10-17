@@ -8,7 +8,7 @@ export const a = /*#__PURE__*/ (src:string) => {
 export const testPromise = /*#__PURE__*/ (): Promise<string> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve('1');
+      resolve('mod1');
     }, 1000);
   });
 };
