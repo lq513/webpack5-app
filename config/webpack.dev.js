@@ -50,6 +50,7 @@ module.exports = merge(baseConfig, {
 
   ],
   optimization: {
+    usedExports: true,
     minimizer: [
       // new TerserPlugin({
       //   parallel: true,
