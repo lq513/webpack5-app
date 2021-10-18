@@ -9,7 +9,10 @@ module.exports = {
     // cacheDirectory 默认路径是 node_modules/.cache/webpack
     cacheDirectory: path.resolve(__dirname, '.temp_cache'),
   },
-  target: 'web',
+  /*
+  * 如未使用 browserslist，webpack 的运行时代码将默认使用 ES2015 语法（例如，箭头函数）来构建一个简洁的 bundles。设置 target: ['web', 'es5'] 以使用 ES5 的语法。 
+  */
+  target: ['web', 'es5'],
   entry: {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },

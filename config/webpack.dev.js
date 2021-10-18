@@ -10,6 +10,7 @@ console.log(path.resolve('/'));
 
 module.exports = merge(baseConfig, {
   mode: 'development',
+  target: 'web', // 提高开发构建速度
   module: {
     rules: [
       {

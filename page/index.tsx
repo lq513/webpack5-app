@@ -9,11 +9,9 @@ import styles from './index.less';
 console.log(styles, 222222);
 
 import { testPromise } from '@/mod';
-testPromise();
-const testfn = () => {
-  console.log(1111);
-};
-testfn();
+testPromise().then(e => {
+  console.log(e, 'promise');
+});
 
 class A extends React.Component {
   componentDidMount() {
