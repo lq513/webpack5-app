@@ -8,14 +8,13 @@ import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 222222);
 
-import { testPromise } from '@/mod';
-testPromise().then(e => {
-  console.log(e, 'promise');
-});
-
 class A extends React.Component {
   componentDidMount() {
-    console.log(this.refs);
+    const p = import('./home');
+    p.then((e) => {
+      const { default: Home } = e;
+      console.log(e);
+    });
   }
 
   render() {
@@ -38,4 +37,4 @@ class A extends React.Component {
 //   }
 // });
 
-ReactDOM.createRoot(document.getElementById('root')).render(<A />);
+ReactDOM.render(<A/>, document.getElementById('root'));

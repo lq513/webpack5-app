@@ -13,7 +13,7 @@ import styles from './index.less';
 
 class Home extends React.Component {
   render() {
-    return 'Home';
+    return 'Home1';
   }
 }
 

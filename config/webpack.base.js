@@ -9,18 +9,14 @@ module.exports = {
     // cacheDirectory 默认路径是 node_modules/.cache/webpack
     cacheDirectory: path.resolve(__dirname, '.temp_cache'),
   },
-  /*
-  * 如未使用 browserslist，webpack 的运行时代码将默认使用 ES2015 语法（例如，箭头函数）来构建一个简洁的 bundles。设置 target: ['web', 'es5'] 以使用 ES5 的语法。 
-  */
-  target: ['web', 'es5'],
   entry: {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },
   output: {
-    filename: 'ab[hash][id].js',
-    chunkFilename: 'bundle[name][hash],js',
+    filename: '[name][hash:4].js',
+    chunkFilename: '[name][hash:4].js',
     publicPath: '/',
-    path: path.resolve(__dirname, '../dist'),
+    // path: path.resolve(__dirname, '../dist'),
     clean: true, // webpack5 替代CleanWebpackPlugin
   },
   resolve: {
@@ -35,7 +31,7 @@ module.exports = {
       {
         test: /\.tsx?/,
         // use: 'awesome-typescript-loader',
-        use: ['babel-loader'],
+        use: ['babel-loader', 'ts-loader'],
         exclude: /node_modules/,
         // sideEffects: false,
       },
