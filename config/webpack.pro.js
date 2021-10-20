@@ -11,4 +11,7 @@ module.exports = merge(baseConfig, {
   devtool: false, // 防止打包是使用eval模式
   plugins: [
   ],
+  optimization: {
+    runtimeChunk: 'single', // 提取webpack 运行时
+  },
 });
