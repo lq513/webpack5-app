@@ -97,7 +97,7 @@ module.exports = {
           },
         },
         generator: {
-          filename: 'static/[hash][ext][query]', // 图片文件位置/文件名
+          filename: 'static/[hash:4][ext][query]', // 图片文件位置/文件名
         },
       },
       {
