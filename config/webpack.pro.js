@@ -12,11 +12,23 @@ module.exports = merge(baseConfig, {
   target: ['web', 'es5'],
   devtool: false, // 防止打包是使用eval模式
   plugins: [
-    new WebpackManifestPlugin({
-      fileName: 'c',
-    }),
+    new WebpackManifestPlugin(),
   ],
   optimization: {
     runtimeChunk: 'single', // 提取webpack 运行时
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          // cacheGroupKey here is `commons` as the key of the cacheGroup
+          name(module, chunks, cacheGroupKey) {
+            console.log(module.identifier(), 22222);
+            const allChunksNames = chunks.map((item) => item.name).join('~');
+            return `${cacheGroupKey}-${allChunksNames}`;
+          },
+          chunks: 'all',
+        },
+      },
+    },
   },
 });

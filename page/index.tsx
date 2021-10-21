@@ -10,7 +10,7 @@ console.log(styles, 222222);
 
 class A extends React.Component {
   componentDidMount() {
-    const p = import('./home');
+    const p = import(/* webpackPreload: true */ './home');
     p.then((e) => {
       const { default: Home } = e;
       console.log(e);
