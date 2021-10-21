@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "dependencies": {
     "antd-mobile": "^2.3.4",
     "core-js": "^3.18.3",
@@ -45,7 +47,9 @@
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.3",
     "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-dev-server": "^4.2.1"
+    "webpack-dev-server": "^4.2.1",
+    "webpack-manifest-plugin": "^4.0.2",
+    "webpack-nano": "^1.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

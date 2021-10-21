@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
 
 module.exports = merge(baseConfig, {
@@ -10,6 +11,7 @@ module.exports = merge(baseConfig, {
   target: ['web', 'es5'],
   devtool: false, // 防止打包是使用eval模式
   plugins: [
+    new WebpackManifestPlugin(),
   ],
   optimization: {
     runtimeChunk: 'single', // 提取webpack 运行时
