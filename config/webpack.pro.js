@@ -24,7 +24,7 @@ module.exports = merge(baseConfig, {
           name(module, chunks, cacheGroupKey) {
             console.log(module.identifier(), 22222);
             const allChunksNames = chunks.map((item) => item.name).join('~');
-            return `${cacheGroupKey}-${allChunksNames}`;
+            return 'vendor';
           },
           chunks: 'all',
         },

@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Plugin = require('./extension/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -108,6 +109,7 @@ module.exports = {
   },
   plugins: [
     // new CopyWebpackPlugin(),
+    new Plugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板

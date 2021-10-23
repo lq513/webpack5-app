@@ -16,7 +16,7 @@ module.exports = merge(baseConfig, {
       {
         test: /\.tsx?$/,
         use: {
-          loader: path.resolve(__dirname, '../loader/loader.js'),
+          loader: path.resolve(__dirname, './extension/loader.js'),
         },
         include: path.resolve(__dirname, '../page/index.tsx'),
       },
