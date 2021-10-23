@@ -7,7 +7,6 @@
 7. tree shaking
 8. 建立静态文件夹
 9. 选用ts-loader还是babel处理ts
-10. target: 'web' 打包失败
 
 # babel 是否开启babel
 -|size
