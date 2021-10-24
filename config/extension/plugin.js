@@ -1,6 +1,8 @@
 class Plugin {
   apply(compiler) {
-    // console.log(compiler, 'plugin');
+    compiler.hooks.make.tap('SomePlugin', (compilation) => {
+      // console.log(compilation, 3333);
+    });
   }
 }
 

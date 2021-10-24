@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const TerserPlugin = require('terser-webpack-plugin');
 // https://webpack.docschina.org/guides/output-management/#the-manifest
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
@@ -30,5 +31,13 @@ module.exports = merge(baseConfig, {
         },
       },
     },
+    minimizer: [
+      // new TerserPlugin({
+      //   parallel: true,
+      //   terserOptions: {
+      //     // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+      //   },
+      // }),
+    ],
   },
 });

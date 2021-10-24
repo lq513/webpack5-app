@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Plugin = require('./extension/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -114,6 +115,10 @@ module.exports = {
       inject: 'body',
       template: path.resolve(__dirname, '../page/index.html'), // 不给模板它自己会创建一个html模板
     }),
+    // new webpack.IgnorePlugin({
+    //   resourceRegExp: /^\.\/locale$/,
+    //   contextRegExp: /moment$/,
+    // }),
   ],
   optimization: {
   },
