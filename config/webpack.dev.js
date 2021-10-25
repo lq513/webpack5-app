@@ -49,7 +49,6 @@ module.exports = (env) => {
   
     ],
     optimization: {
-      usedExports: true,
     },
   });
 };
