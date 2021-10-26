@@ -8,6 +8,9 @@ import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 222222);
 
+import { a } from '@/mod';
+a('./static/1.gif');
+
 class A extends React.Component {
   componentDidMount() {
     const p = import(/* webpackPreload: true */ './home');

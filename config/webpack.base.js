@@ -109,7 +109,11 @@ module.exports = {
     ],
   },
   plugins: [
-    // new CopyWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './public', to: './static' },
+      ],
+    }),
     new Plugin(),
     new HtmlWebpackPlugin({
       inject: 'body',

@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const baseConfig = require('./webpack.base');
 
 // 执行路径
-console.log(path.resolve('/'));
+console.log(path.resolve('./'));
 
 module.exports = (env) => {
   console.log(env, process.args, 'env');
