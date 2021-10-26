@@ -15,8 +15,8 @@ module.exports = {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },
   output: {
-    filename: '[name][hash:4].js',
-    chunkFilename: '[name][hash:4].js',
+    filename: '[name][chunkhash].js',
+    chunkFilename: '[name][chunkhash].js',
     publicPath: '/',
     // path: path.resolve(__dirname, '../dist'),
     clean: true, // webpack5 替代CleanWebpackPlugin
@@ -75,7 +75,14 @@ module.exports = {
               // },
             },
           },
-          'less-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true, // 3.11.1 后lessOptions.javascriptEnabled
+              },
+            },
+          },
         ],
       },
       // {
