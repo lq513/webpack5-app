@@ -15,8 +15,8 @@ module.exports = {
     main: path.resolve(__dirname, '../page/index.tsx'),
   },
   output: {
-    filename: '[name][chunkhash].js',
-    chunkFilename: '[name][chunkhash].js',
+    filename: '[name][chunkhash:4].js',
+    chunkFilename: '[name][chunkhash:4].js',
     publicPath: '/',
     // path: path.resolve(__dirname, '../dist'),
     clean: true, // webpack5 替代CleanWebpackPlugin
@@ -41,9 +41,9 @@ module.exports = {
         test: /\.css$/,
         use: [{
           loader: 'style-loader',
-          options: {
-            'injectType': 'lazyStyleTag',
-          },
+          // options: {
+          //   'injectType': 'lazyStyleTag',
+          // },
         }, 'css-loader'],
       },
       {

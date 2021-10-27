@@ -13,6 +13,11 @@
       }
     ],
     "@babel/preset-react",
-    "@babel/preset-typescript"
+    // "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "import", { "libraryName": "antd-mobile", "style": "css" },
+    ]
   ]
 }

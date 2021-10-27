@@ -16,14 +16,14 @@ module.exports = merge(baseConfig, {
     new WebpackManifestPlugin(),
   ],
   optimization: {
-    runtimeChunk: 'single', // 提取webpack 运行时
+    // runtimeChunk: 'single', // 提取webpack 运行时
     splitChunks: {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
           // cacheGroupKey here is `commons` as the key of the cacheGroup
           name(module, chunks, cacheGroupKey) {
-            console.log(module.identifier(), 22222);
+            // console.log(module.identifier(), 22222);
             const allChunksNames = chunks.map((item) => item.name).join('~');
             return 'vendor';
           },
