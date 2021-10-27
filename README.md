@@ -3,12 +3,9 @@
 3. 样式文件未解析
 4. 配置css modules
 5. 配置路由
-6. 动态导入
-7. tree shaking
-8. 建立静态文件夹
-9. 选用ts-loader还是babel处理ts
+6. 选用ts-loader还是babel处理ts
 
-# babel 是否开启babel
+# 
 -|size
 ---|:--:
 未esmodules,未引入regenerator-runtime|1361
