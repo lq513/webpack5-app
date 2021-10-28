@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "sideEffects": [
-    "*.css"
+    "./common/style/*"
   ],
   "dependencies": {
     "antd-mobile": "^2.3.4",

@@ -71,6 +71,7 @@ module.exports = {
             },
           },
         ],
+        // sideEffects: true,
       },
       // {
       //   test: /\.(png|jpg|gif)$/,
