@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'antd-mobile';
+// import Test from './test';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
 import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 222222);
-
-import { a } from '@/mod';
-a('./static/1.gif');
 
 class A extends React.Component {
   componentDidMount() {
@@ -23,7 +20,7 @@ class A extends React.Component {
   render() {
     return (
       <>
-      <Button type="warning" className="common">test</Button>
+        {/* <Test /> */}
     </>
     );
   }

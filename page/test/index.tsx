@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { Button } from 'antd-mobile';
 
-// import { Button } from 'antd-mobile';
+// 测试css是否被tree shaking
+import './index.css';
 
 // 测试静态文件打包
 import text from 'common/assets/1.txt';
@@ -9,10 +11,11 @@ import cat from 'common/assets/cat.jpg';
 console.log(import.meta.url, 2222222);
 
 import { a } from '@/mod';
-a('../common/assets/cat.jpg');
+a('./static/1.gif');
 
 const Test = () => {
   useEffect(() => {
+    // 测试cros跨域
     fetch('http://localhost:3002/test').then(res => {
       console.log(res);
     })
@@ -21,9 +24,9 @@ const Test = () => {
 
   return (
     <>
-      {/* <Button type="warning">11</Button> */}
       <img src={cat} />
-      {text.toString()}
+      <p style={{ padding: '10px', lineHeight: '1.1', color: 'pink' }}>{text.toString()}</p>
+      <Button type="warning">test antd</Button>
     </>
   );
 };
