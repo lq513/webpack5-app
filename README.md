@@ -4,6 +4,7 @@
 4. 配置css modules
 5. 配置路由
 6. 选用ts-loader还是babel处理ts
+7. 修改ant-design默认样式
 
 # 
 -|size

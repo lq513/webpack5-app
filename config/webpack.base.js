@@ -37,6 +37,7 @@ module.exports = {
         exclude: /node_modules/,
         // sideEffects: false,
       },
+      // css 根据文件名开启css modules
       {
         test: /\.css$/,
         use: [{
@@ -49,33 +50,19 @@ module.exports = {
       {
         test: /\.less$/i,
         use: [
-          // {
-          //   loader: 'style-loader',
-          //   options: {
-          //     'injectType': 'lazyStyleTag',
-          //   },
-          // },
           'style-loader',
           {
             loader: 'css-loader',
             options: {
-              modules: true, // 对所有文件启用 CSS 模块
-              // url: {
-              //   filter: (url, resourcePath) => {
-              //     // resourcePath - path to css file
-              //     console.log(url, resourcePath, 111111, 'css-loader\n');
-    
-              //     // Don't handle `a.jpg` urls
-              //     if (url.includes('a.jpg')) {
-              //       return false;
-              //     }
-    
-              //     return true;
-              //   },
-              // },
+              // modules: 'global',
+              modules: {
+                // auto: (src) => {
+                //   console.log(src, '===src');
+                // },
+                auto: /page\\.*\.less/, // page 目录开启css modules
+              },
             },
-          },
-          {
+          }, {
             loader: 'less-loader',
             options: {
               lessOptions: {

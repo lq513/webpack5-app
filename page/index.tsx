@@ -23,7 +23,7 @@ class A extends React.Component {
   render() {
     return (
       <>
-      <Button type="warning">test</Button>
+      <Button type="warning" className="common">test</Button>
     </>
     );
   }
