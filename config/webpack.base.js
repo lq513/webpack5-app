@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Plugin = require('./extension/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // 设置缓存位置
@@ -40,17 +41,13 @@ module.exports = {
       // css 根据文件名开启css modules
       {
         test: /\.css$/,
-        use: [{
-          loader: 'style-loader',
-          // options: {
-          //   'injectType': 'lazyStyleTag',
-          // },
-        }, 'css-loader'],
+        use: [ MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.less$/i,
         use: [
-          'style-loader',
+          // 'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -62,7 +59,9 @@ module.exports = {
                 auto: /page\\.*\.less/, // page 目录开启css modules
               },
             },
-          }, {
+          },
+          'postcss-loader',
+          {
             loader: 'less-loader',
             options: {
               lessOptions: {
@@ -104,6 +103,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'main.css',
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: './public', to: './static' },

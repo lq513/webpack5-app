@@ -1,11 +1,10 @@
 # aim
 1. 配置postcss
-2. 代码分离
-3. 样式文件未解析
-4. 配置css modules
-5. 配置路由
-6. 选用ts-loader还是babel处理ts
-7. 修改ant-design默认样式
+2. 生产环境提取css文件，并压缩
+3. 配置路由
+4. 选用ts-loader还是babel处理ts
+5. 修改ant-design默认样式
+6. 生产环境关闭react-dev-tools
 
 # 
 -|size
