@@ -1,6 +1,6 @@
-// import React, { useState } from 'react';
-// import ReactDOM from 'react-dom';
-// import Test from './test';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Test from './test';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
@@ -8,20 +8,32 @@ import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 'style');
 
+interface Desc {
+  enumerable?: boolean
+}
 // 类
+const enumerable = (_: object, name: string, descriptor: Desc) => {
+  descriptor.enumerable = true;
+  return descriptor;
+};
+
+const add = (target: any) => {
+  target.num = 1;
+  console.log(target.prototype, 'B');
+};
 @add
 class B {
-  // @enumerable
+  @enumerable
   fn() {
     console.log('执行了');
   }
 }
-function add(target: any) {
-  target.num = 1;
-  console.log(target.prototype, 'B');
-}
 const b = new B();
 b.fn();
+
+for (let key in b) {
+  console.log(key, 'key');
+} 
 
 // promise
 const p = new Promise((resolve) => {
@@ -39,24 +51,24 @@ console.log(has2, 'includes');
 
 
 
-// class A extends React.Component {
-//   componentDidMount() {
+class A extends React.Component {
+  componentDidMount() {
     
-//     const p = import(/* webpackPreload: true */ './home');
-//     p.then((e) => {
-//       const { default: Home } = e;
-//       console.log(e);
-//     });
-//   }
+    const p = import(/* webpackPreload: true */ './home');
+    p.then((e) => {
+      const { default: Home } = e;
+      console.log(e);
+    });
+  }
 
-//   render() {
-//     return (
-//       <>
-//         {/* <Test /> */}
-//     </>
-//     );
-//   }
-// }
+  render() {
+    return (
+      <>
+        <Test />
+    </>
+    );
+  }
+}
 
 
 
@@ -73,4 +85,4 @@ console.log(has2, 'includes');
 // });
 
 
-// ReactDOM.render(<A/>, document.getElementById('root'));
+ReactDOM.render(<A/>, document.getElementById('root'));

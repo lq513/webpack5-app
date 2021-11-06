@@ -1,4 +1,4 @@
-{
+module.exports = {
   "presets": [
     [
       "@babel/preset-env",
@@ -16,8 +16,16 @@
     "@babel/preset-typescript"
   ],
   "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
     [
-      "import", { "libraryName": "antd-mobile", "style": true } // less 体积较小
+      "import", {
+        "libraryName": "antd-mobile",
+        "style": true, // less 体积较小
+        // "customStyleName": (name) => {
+        //   console.log(name, 1111)
+        //   return require('path').resolve(__dirname, './common/style/index.css');
+        // }
+      } 
     ]
   ]
 }
