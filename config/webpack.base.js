@@ -18,7 +18,7 @@ module.exports = {
   output: {
     filename: '[name][chunkhash:4].js',
     chunkFilename: '[name][chunkhash:4].js',
-    publicPath: '/',
+    publicPath: './',
     // path: path.resolve(__dirname, '../dist'),
     clean: true, // webpack5 替代CleanWebpackPlugin
   },
@@ -31,13 +31,6 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.tsx?/,
-        // use: 'awesome-typescript-loader',
-        use: ['babel-loader', 'ts-loader'],
-        exclude: /node_modules/,
-        // sideEffects: false,
-      },
       // css 根据文件名开启css modules
       {
         test: /\.css$/,
@@ -104,7 +97,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'main.css',
+      filename: '[name].css',
     }),
     new CopyWebpackPlugin({
       patterns: [

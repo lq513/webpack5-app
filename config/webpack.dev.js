@@ -13,14 +13,22 @@ module.exports = (env) => {
   return merge(baseConfig, {
     mode: 'development',
     target: 'web', // 提高开发构建速度
+    output: {
+      publicPath: '/',
+    },
     module: {
       rules: [
+        // {
+        //   test: /\.tsx?$/,
+        //   use: {
+        //     loader: path.resolve(__dirname, './extension/loader.js'),
+        //   },
+        //   include: path.resolve(__dirname, '../page/index.tsx'),
+        // },
         {
-          test: /\.tsx?$/,
-          use: {
-            loader: path.resolve(__dirname, './extension/loader.js'),
-          },
-          include: path.resolve(__dirname, '../page/index.tsx'),
+          test: /\.tsx?/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
         },
       ],
     },

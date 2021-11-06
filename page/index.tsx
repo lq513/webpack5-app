@@ -1,30 +1,64 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+// import React, { useState } from 'react';
+// import ReactDOM from 'react-dom';
 // import Test from './test';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
 import 'common/style/index.less';
 import styles from './index.less';
-console.log(styles, 222222);
+console.log(styles, 'style');
 
-class A extends React.Component {
-  componentDidMount() {
-    const p = import(/* webpackPreload: true */ './home');
-    p.then((e) => {
-      const { default: Home } = e;
-      console.log(e);
-    });
-  }
-
-  render() {
-    return (
-      <>
-        {/* <Test /> */}
-    </>
-    );
+// 类
+@add
+class B {
+  // @enumerable
+  fn() {
+    console.log('执行了');
   }
 }
+function add(target: any) {
+  target.num = 1;
+  console.log(target.prototype, 'B');
+}
+const b = new B();
+b.fn();
+
+// promise
+const p = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('finally1');
+  }, 5000);
+});
+p.then(e => { console.log(e); }).finally(() => {console.log('finally'); });
+
+// 新api
+const arr = [1, 2];
+const has2 = arr.includes(2);
+console.log(has2, 'includes');
+
+
+
+
+// class A extends React.Component {
+//   componentDidMount() {
+    
+//     const p = import(/* webpackPreload: true */ './home');
+//     p.then((e) => {
+//       const { default: Home } = e;
+//       console.log(e);
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <>
+//         {/* <Test /> */}
+//     </>
+//     );
+//   }
+// }
+
+
 
 // document.addEventListener('keydown', (oEvent) => {
 //   //获取键盘的keyCode值
@@ -34,8 +68,9 @@ class A extends React.Component {
 //   const bCtrlKeyCode = oEvent.ctrlKey || oEvent.metaKey;
 //   if ( KeyCode.toLowerCase() === 'u' && bCtrlKeyCode  ) {
 //     oEvent.preventDefault();
-//     window.location.href = 'https://github.com/lq513/ab';
+//     window.location.href = 'https://github.com/lq513/webpack5-app';
 //   }
 // });
 
-ReactDOM.render(<A/>, document.getElementById('root'));
+
+// ReactDOM.render(<A/>, document.getElementById('root'));

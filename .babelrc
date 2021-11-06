@@ -6,14 +6,14 @@
         "corejs": "3",
         // "modules": "commonjs",
         "modules": false,
-        "targets": {
-          "esmodules": true // 不会引用core.js 的polyfill了
-        },
-        // "useBuiltIns": "usage" // This option configures how @babel/preset-env handles polyfills.
+        // "targets": {
+        //   "esmodules": true // 不会引用core.js 的polyfill了
+        // },
+        "useBuiltIns": "usage" // This option configures how @babel/preset-env handles polyfills.
       }
     ],
     "@babel/preset-react",
-    // "@babel/preset-typescript"
+    "@babel/preset-typescript"
   ],
   "plugins": [
     [
