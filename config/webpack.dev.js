@@ -13,6 +13,7 @@ module.exports = (env) => {
   return merge(baseConfig, {
     mode: 'development',
     target: 'web', // 提高开发构建速度
+    devtool: 'source-map',
     output: {
       publicPath: '/',
     },
@@ -51,10 +52,11 @@ module.exports = (env) => {
         console.log('Listening on port:', port);
       },
     },
-    devtool: 'source-map',
     plugins: [
       // new BundleAnalyzerPlugin(),
-  
+      new webpack.DefinePlugin({
+        $DEV: 'true',
+      }),
     ],
     optimization: {
     },

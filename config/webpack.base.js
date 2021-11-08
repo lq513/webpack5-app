@@ -49,7 +49,8 @@ module.exports = {
                 // auto: (src) => {
                 //   console.log(src, '===src');
                 // },
-                auto: /page\\.*\.less/, // page 目录开启css modules
+                auto: /(page\\.*)|(common\\components\\.*)/, // page 目录开启css modules
+                localIdentName: '[folder]_[hash:base64:5]', // path/name/local/hash
               },
             },
           },

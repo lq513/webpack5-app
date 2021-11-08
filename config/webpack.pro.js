@@ -1,9 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 // https://webpack.docschina.org/guides/output-management/#the-manifest
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
+
+// baseConfig.module.rules[1].use[1].options.modules.localIdentName = '[hash:base64]';
 
 module.exports = merge(baseConfig, {
   mode: 'production',
@@ -25,6 +28,9 @@ module.exports = merge(baseConfig, {
   },
   plugins: [
     new WebpackManifestPlugin(),
+    new webpack.DefinePlugin({
+      $DEV: 'false',
+    }),
   ],
   optimization: {
     // runtimeChunk: 'single', // 提取webpack 运行时

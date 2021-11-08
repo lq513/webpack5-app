@@ -1,5 +1,8 @@
 # notice
-1. 除了 './common/style' 下的 less 文件均会被tree-shaking;
+1. 除了 './common/style' 下的样式文件和所有的.css文件均会被tree-shaking;
+2. 生产环境css的sourceMap生成取决于devtool选项
+3. 
+
 # aim
 1. 配置postcss
 2. 生产环境提取css文件，并压缩

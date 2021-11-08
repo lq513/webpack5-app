@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './test';
+// import Test from './test';
+import Header from 'common/components/Header';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
+// 开发用的ts-loader，未按需引入样式，故特殊处理
+if ($DEV) require('antd-mobile/dist/antd-mobile.less');
 import 'common/style/index.less';
 import styles from './index.less';
 console.log(styles, 'style');
@@ -43,7 +46,7 @@ const p = new Promise((resolve) => {
 });
 p.then(e => { console.log(e); }).finally(() => {console.log('finally'); });
 
-// 新api
+// es6 api
 const arr = [1, 2];
 const has2 = arr.includes(2);
 console.log(has2, 'includes');
@@ -64,7 +67,8 @@ class A extends React.Component {
   render() {
     return (
       <>
-        <Test />
+        {/* <Test /> */}
+        <Header />
     </>
     );
   }

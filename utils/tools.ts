@@ -6,12 +6,12 @@ const a = /*#__PURE__*/ (src:string) => {
   document.body.appendChild(ele);
 };
 
-const testPromise = /*#__PURE__*/ (): Promise<string> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve('mod1');
-    }, 1000);
-  });
+const handleTheme = /*#__PURE__*/ (checked: boolean) => {
+  if (checked) {
+    document.body.className = 'dark';
+  } else {
+    document.body.className = '';
+  }
 };
 
-export { a, testPromise };
+export { a, handleTheme };
