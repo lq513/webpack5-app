@@ -66,5 +66,13 @@
     "btest": "webpack --config config/webpack.pro.js --mode development --analyze"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": [
+    "defaults",
+    "not ie <= 8",
+    "last 2 versions",
+    "> 1%",
+    "iOS >= 7",
+    "Android >= 4.0"
+  ]
 }
