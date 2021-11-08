@@ -7,11 +7,10 @@ const a = /*#__PURE__*/ (src:string) => {
 };
 
 const handleTheme = /*#__PURE__*/ (checked: boolean) => {
-  if (checked) {
-    document.body.className = 'dark';
-  } else {
-    document.body.className = '';
-  }
+  let theme = 'light';
+  if (checked) theme = 'dark';
+  document.body.className = theme;
+  localStorage.setItem('theme', theme);
 };
 
 export { a, handleTheme };
