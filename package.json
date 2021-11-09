@@ -2,13 +2,14 @@
   "name": "xxx",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "page/index.tsx",
   "sideEffects": [
     "./common/style/*",
     "*.css"
   ],
   "dependencies": {
     "antd-mobile": "^2.3.4",
+    "autoprefixer": "^10.4.0",
     "core-js": "^3.18.3",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.3.0",
@@ -36,7 +37,6 @@
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
-    "autoprefixer": "^10.4.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
