@@ -67,9 +67,8 @@ class A extends React.Component {
   render() {
     return (
       <>
-        {/* <Test /> */}
         <Header />
-        <div className={styles.testcss}>测试css</div>
+        {/* <Test /> */}
     </>
     );
   }

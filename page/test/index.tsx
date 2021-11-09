@@ -25,7 +25,8 @@ const Test = () => {
   return (
     <>
       <img src={cat} />
-      <p style={{ padding: '10px', lineHeight: '1.1', color: 'pink' }}>{text.toString()}</p>
+      <p style={{ padding: '10px', lineHeight: '1.1', color: 'var(--grey-9-rgb)' }}>{text.toString()}</p>
+      <div className='testcss'>测试css</div>
       <Button type="warning">test antd</Button>
     </>
   );
