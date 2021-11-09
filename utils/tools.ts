@@ -13,4 +13,18 @@ const handleTheme = /*#__PURE__*/ (checked: boolean) => {
   localStorage.setItem('theme', theme);
 };
 
-export { a, handleTheme };
+const handleSourceCode = () => {
+  document.addEventListener('keydown', (oEvent) => {
+    //获取键盘的keyCode值
+    const KeyCode = oEvent.key;
+    // console.log(oEvent, 11111111);
+    //获取ctrl 键对应的事件属性
+    const bCtrlKeyCode = oEvent.ctrlKey || oEvent.metaKey;
+    if ( KeyCode.toLowerCase() === 'u' && bCtrlKeyCode  ) {
+      oEvent.preventDefault();
+      window.location.href = 'https://github.com/lq513/webpack5-app';
+    }
+  });
+};
+
+export { a, handleTheme, handleSourceCode };
