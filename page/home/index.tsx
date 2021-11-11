@@ -45,7 +45,15 @@ console.log(has2, 'includes');
 
 class Home extends React.Component {
   render() {
-    return 'Home';
+    return (
+      <div className={styles.homeBox}>
+        <h1>你好！</h1>
+        <p>
+          欢迎使用，有问题可以联系这个邮箱：
+          <a href="https://mail.google.com">liuqiang513@gmail.com</a>
+        </p>
+      </div>
+    );
   }
 }
 
