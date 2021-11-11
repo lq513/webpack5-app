@@ -1,7 +1,7 @@
 # notice
 1. 除了 './common/style' 下的样式文件和所有的.css文件均会被tree-shaking;
 2. 生产环境css的sourceMap生成取决于devtool选项
-3. npm 安装依赖
+3. 
 
 # aim
 1. 配置postcss

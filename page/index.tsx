@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
-import route from './routes';
+import Home from './home';
 import Header from 'common/components/Header';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
@@ -9,23 +8,23 @@ import Header from 'common/components/Header';
 // 开发用的ts-loader，未按需引入样式，故特殊处理
 if ($DEV) require('antd-mobile/dist/antd-mobile.less');
 import 'common/style/index.less';
+class A extends React.Component {
+  componentDidMount() {
+    const p = import(/* webpackPreload: true */ './home');
+    p.then((e) => {
+      const { default: Home } = e;
+      console.log(e);
+    });
+  }
 
-const Routes = () => useRoutes(route);
-const A = () => {
-  useEffect(() => {
-    // const p = import(/* webpackPreload: true */ './home');
-    // p.then((e) => {
-    //   const { default: Home } = e;
-    //   console.log(e);
-    // });
-  }, []);
-
-  return (<>
-    <Header />
-    <Router>
-      <Routes/>
-    </Router>
-  </>);
-};
+  render() {
+    return (
+      <>
+        <Header />
+        <Home />
+    </>
+    );
+  }
+}
 
 ReactDOM.render(<A/>, document.getElementById('root'));
