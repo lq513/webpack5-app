@@ -10,8 +10,8 @@ import cat from 'common/assets/cat.jpg';
 // const cat = require('../public/1.gif').default;
 console.log(import.meta.url, 2222222);
 
-import { a } from '@/tools';
-a('./static/1.gif');
+// import { a } from '@/tools';
+// a('./static/1.gif');
 
 const Test = () => {
   useEffect(() => {

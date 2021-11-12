@@ -1,5 +1,8 @@
 import React, { ComponentType, Suspense } from 'react';
 
+import Test from './test';
+import Task from './task';
+
 interface DynamicProps {
   ele: Promise<{ default: ComponentType<any> }>,
   loading?: React.ReactElement
@@ -18,13 +21,17 @@ export default [
   {
     path: '/',
     element: <Dynamic ele={import('./home')}/>,
-    // children: [
-    //   {
-    //     path: 'messages',
-    //     element: null,
-    //   },
-    //   { path: 'tasks', element: null },
-    // ],
+    children: [
+      {
+        index: true,
+        element: <Dynamic ele={import('./test')}/>,
+      },
+      {
+        path: 'test',
+        element: <Dynamic ele={import('./test')}/>,
+      },
+      { path: 'task', element: <Dynamic ele={import('./task')}/> },
+      { path: '*', element: '404' },
+    ],
   },
-  { path: 'team', element: '404' },
 ];

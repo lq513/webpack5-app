@@ -41,7 +41,7 @@ module.exports = (env) => {
         progress: true,
       },
       // contentBase 被static替换，默认public，作用：修改serve路径
-      static: './page',
+      static: './',
       host: 'local-ip', // 域名
       onListening: (devServer) => {
         if (!devServer) {
