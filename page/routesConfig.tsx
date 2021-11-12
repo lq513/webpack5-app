@@ -1,8 +1,4 @@
 import React, { ComponentType, Suspense } from 'react';
-
-import Test from './test';
-import Task from './task';
-
 interface DynamicProps {
   ele: Promise<{ default: ComponentType<any> }>,
   loading?: React.ReactElement

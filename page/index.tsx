@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-dom';
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import routesConfig from './routesConfig';
 import Header from 'common/components/Header';
 
-import Home from './home';
-import Test from './test';
-import Task from './task';
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
@@ -27,20 +24,6 @@ const Root = () => {
   return (<>
     <Header />
     <Router>
-      {/* <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="test" element={<Test />} />
-          <Route path="task" element={<Task />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: '1rem' }}>
-                <p>There is nothing here!</p>
-              </main>
-            }
-          />
-        </Route>
-      </Routes> */}
       <RoutesConfig />
     </Router>
   </>);
