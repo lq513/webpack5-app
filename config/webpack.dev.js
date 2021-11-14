@@ -35,13 +35,15 @@ module.exports = (env) => {
     },
     devServer: {
       port: 9000,
-      hot: true,
+      hot: true, // v4后不用引入webpack.HotModuleReplacementPlugin
       open: true,
+      // When using the HTML5 History API, the index.html page will likely have to be served in place of any 404 responses.
+      historyApiFallback: true,
       client: {
         progress: true,
       },
       // contentBase 被static替换，默认public，作用：修改serve路径
-      static: './page',
+      static: './',
       host: 'local-ip', // 域名
       onListening: (devServer) => {
         if (!devServer) {
