@@ -16,7 +16,7 @@ console.log(import.meta.url, 2222222);
 const Test = () => {
   useEffect(() => {
     // 测试cros跨域
-    fetch('http://localhost:3002/test').then(res => {
+    fetch('http://localhost:3002/getJsDoc').then(res => {
       console.log(res);
     })
       .catch(e=>console.log(e));

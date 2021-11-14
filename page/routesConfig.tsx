@@ -1,13 +1,12 @@
 import React, { ComponentType, Suspense } from 'react';
-interface DynamicProps {
-  ele: Promise<{ default: ComponentType<any> }>,
-  loading?: React.ReactElement
-}
 
-const Dynamic = (props:DynamicProps) => {
-  const Ele = React.lazy(() => props.ele);
+const dynamic = (
+  ele: Promise<{ default: ComponentType<any> }>,
+  loading?: React.ReactElement,
+) => {
+  const Ele = React.lazy(() => ele);
   return (
-    <Suspense fallback={props.loading || '加载中...'}>
+    <Suspense fallback={loading || '加载中...'}>
       <Ele/>
     </Suspense>
   );
@@ -16,17 +15,17 @@ const Dynamic = (props:DynamicProps) => {
 export default [
   {
     path: '/',
-    element: <Dynamic ele={import('./home')}/>,
+    element: dynamic(import('./home')),
     children: [
       {
         index: true,
-        element: <Dynamic ele={import('./test')}/>,
+        element: dynamic(import('./test')),
       },
       {
         path: 'test',
-        element: <Dynamic ele={import('./test')}/>,
+        element: dynamic(import('./test')),
       },
-      { path: 'task', element: <Dynamic ele={import('./task')}/> },
+      { path: 'task', element: dynamic(import('./task')) },
       { path: '*', element: '404' },
     ],
   },
