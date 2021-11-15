@@ -10,13 +10,15 @@
   "dependencies": {
     "antd-mobile": "^2.3.4",
     "autoprefixer": "^10.4.0",
-    "core-js": "^3.18.3",
     "copy-webpack-plugin": "^9.0.1",
+    "core-js": "^3.18.3",
     "css-loader": "^6.3.0",
+    "draw-page-structure": "^1.0.8",
     "html-webpack-plugin": "^5.3.2",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "mini-css-extract-plugin": "^2.4.3",
+    "puppeteer": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "style-loader": "^3.3.0",
@@ -41,6 +43,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
     "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^14.0.0",
@@ -61,7 +64,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack serve -c config/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack serve -c config/webpack.dev.js",
     "devserver": "webpack-dev-server --hot --open --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.pro.js --analyze",
     "btest": "webpack --config config/webpack.pro.js --mode development --analyze"
