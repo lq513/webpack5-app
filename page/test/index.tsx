@@ -5,8 +5,8 @@ import { Button } from 'antd-mobile';
 import './index.css';
 
 // 测试静态文件打包
-import text from 'common/assets/1.txt';
-import cat from 'common/assets/cat.jpg';
+import text from 'assets/1.txt';
+import cat from 'assets/cat.jpg';
 // const cat = require('../public/1.gif').default;
 console.log(import.meta.url, 2222222);
 
