@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import routesConfig from './routesConfig';
-import Header from 'common/components/Header';
+import Header from 'coms/Header';
 
 // import 'core-js/stable';
 // import 'regenerator-runtime/runtime';
 
 // 开发用的ts-loader，未按需引入样式，故特殊处理（请忽略开发环境：You are using a whole package of antd-mobile）
 if ($DEV) require('antd-mobile/dist/antd-mobile.less');
-import 'common/style/index.less';
+import 'style/index.less';
 
 const RoutesConfig = () => useRoutes(routesConfig);
 const Root = () => {

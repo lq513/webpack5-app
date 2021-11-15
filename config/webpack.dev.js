@@ -49,7 +49,9 @@ module.exports = (env) => {
         if (!devServer) {
           throw new Error('webpack-dev-server is not defined');
         }
-  
+        devServer.app.get('/api', (req, res) => {
+          res.json({ code: '200' });
+        });
         const port = devServer.server.address().port;
         console.log('Listening on port:', port);
       },

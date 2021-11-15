@@ -23,10 +23,15 @@ module.exports = {
     clean: true, // webpack5 替代CleanWebpackPlugin
   },
   resolve: {
+    // what directories should be searched when resolving modules.
+    // absolute path will only search in the given directory.
+    modules: ['node_modules'],
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
     alias: {
       '@': path.resolve(__dirname, '../utils'), // 要绝对路径
-      'common': path.resolve(__dirname, '../common'),
+      'coms': path.resolve(__dirname, '../common/components'),
+      'style': path.resolve(__dirname, '../common/style'),
+      'assets': path.resolve(__dirname, '../common/assets'),
     },
   },
   module: {
