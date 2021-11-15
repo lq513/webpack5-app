@@ -10,13 +10,13 @@ import cat from 'assets/cat.jpg';
 // const cat = require('../public/1.gif').default;
 console.log(import.meta.url, 2222222);
 
-import { a } from '@/tools';
-a('./static/1.gif');
+// import { a } from '@/tools';
+// a('./static/1.gif');
 
 const Test = () => {
   useEffect(() => {
     // 测试cros跨域
-    fetch('http://localhost:3002/test').then(res => {
+    fetch('http://localhost:3002/getJsDoc').then(res => {
       console.log(res);
     })
       .catch(e=>console.log(e));

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './index.less';
+import { Outlet, Link } from 'react-router-dom';
 
 interface Desc {
   enumerable?: boolean
@@ -45,7 +46,19 @@ console.log(has2, 'includes');
 
 class Home extends React.Component {
   render() {
-    return 'Home';
+    return (
+      <div className={styles.homeBox}>
+        <h1>你好！</h1>
+        <p>
+          欢迎使用，有问题可以联系这个邮箱：
+          <a href="https://mail.google.com">liuqiang513@gmail.com</a>
+        </p>
+        <Link to="/test">test | </Link>
+        <Link to="/task">task | </Link>
+        <Link to="/nothing">404</Link>
+        <Outlet />
+      </div>
+    );
   }
 }
 
