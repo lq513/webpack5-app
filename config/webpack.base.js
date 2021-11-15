@@ -102,9 +102,13 @@ module.exports = {
     ],
   },
   plugins: [
+    // new webpack.ProvidePlugin({
+    //   React: 'react',
+    // }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
+    // 命令是在根目录执行
     new CopyWebpackPlugin({
       patterns: [
         { from: './public', to: './static' },
