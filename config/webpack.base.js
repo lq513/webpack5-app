@@ -18,7 +18,7 @@ module.exports = {
   output: {
     filename: '[name][chunkhash:4].js',
     chunkFilename: '[name][chunkhash:4].js',
-    publicPath: '/',
+    publicPath: './',
     // path: path.resolve(__dirname, '../dist'),
     clean: true, // webpack5 替代CleanWebpackPlugin
   },

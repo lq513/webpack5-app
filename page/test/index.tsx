@@ -25,9 +25,18 @@ const Test = () => {
   return (
     <>
       <img src={cat} />
+      <h1 className="title">测试标题111111</h1>
       <p style={{ padding: '10px', lineHeight: '1.1', color: 'var(--grey-9-rgb)' }}>{text.toString()}</p>
-      <div className='testcss'>测试css</div>
-      <Button type="warning">test antd</Button>
+      <div id="ignore" className='testcss'>测试css</div>
+      <Button type="warning" className="btn">test antd</Button>
+      <div className="footer">
+        <div>{new Date().toLocaleString()}</div>
+        <a id="ignore1">webpack | </a>
+        <a id="ignore2">babel | </a>
+        <a id="ignore3">postcss | </a>
+        <a id="ignore4">typescript | </a>
+        <a id="ignore5">react-router</a>
+      </div>
     </>
   );
 };

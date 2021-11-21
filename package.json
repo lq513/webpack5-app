@@ -8,6 +8,7 @@
     "*.css"
   ],
   "dependencies": {
+    "@types/webpack-env": "^1.16.3",
     "antd-mobile": "^2.3.4",
     "autoprefixer": "^10.4.0",
     "copy-webpack-plugin": "^9.0.1",

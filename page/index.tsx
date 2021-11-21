@@ -22,11 +22,17 @@ const Root = () => {
   }, []);
 
   return (<>
-    <Header />
+    <Header/>
     <Router>
-      <RoutesConfig />
+      <RoutesConfig/>
     </Router>
   </>);
 };
 
 ReactDOM.render(<Root/>, document.getElementById('root'));
+
+if (module.hot) {
+  module.hot.accept('./test', () => {
+    console.log(11111);
+  });
+}
