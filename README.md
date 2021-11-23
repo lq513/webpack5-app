@@ -11,6 +11,9 @@
 5. 修改ant-design默认样式
 6. 生产环境关闭react-dev-tools
 
+# issue
+1. 更新css页面会刷新，使用了module.hot的js模块也会刷新
+
 # 
 -|size
 ---|:--:

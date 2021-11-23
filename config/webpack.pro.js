@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 // https://webpack.docschina.org/guides/output-management/#the-manifest
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 // baseConfig.module.rules[1].use[1].options.modules.localIdentName = '[hash:base64]';
 
@@ -48,6 +49,7 @@ module.exports = merge(baseConfig, {
         },
       },
     },
+    // 压缩代码
     minimizer: [
       // new TerserPlugin({
       //   parallel: true,
@@ -55,6 +57,8 @@ module.exports = merge(baseConfig, {
       //     // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
       //   },
       // }),
+      '...', // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
+      new CssMinimizerPlugin(), // webpack@4中使用optimize-css-assets-webpack-plugin
     ],
   },
 });
