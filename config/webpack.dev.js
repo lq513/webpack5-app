@@ -8,12 +8,12 @@ const baseConfig = require('./webpack.base');
 console.log(path.resolve('./'));
 
 module.exports = (env) => {
-  console.log(env, process.args, 'env');
+  console.log(env, process.args, 'env\n');
 
   return merge(baseConfig, {
     mode: 'development',
     target: 'web', // 提高开发构建速度
-    devtool: 'source-map',
+    devtool: 'eval-cheap-module-source-map',
     output: {
       publicPath: '/',
     },
@@ -28,7 +28,10 @@ module.exports = (env) => {
         // },
         {
           test: /\.tsx?/,
-          use: 'ts-loader',
+          use: {
+            loader: 'ts-loader',
+            options: { transpileOnly: true },
+          },
           exclude: /node_modules/,
         },
       ],

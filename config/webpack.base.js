@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  // context: path.resolve(__dirname, '../page'),
   // 设置缓存位置
   cache: {
     type: 'filesystem',
@@ -40,6 +41,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        sideEffects: true,
       },
       {
         test: /\.less$/i,
