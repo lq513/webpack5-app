@@ -14,6 +14,7 @@ import 'style/index.less';
 const RoutesConfig = () => useRoutes(routesConfig);
 const Root = () => {
   useEffect(() => {
+    // console.trace('1111');
     // const p = import(/* webpackPreload: true */ './home');
     // p.then((e) => {
     //   const { default: Home } = e;
