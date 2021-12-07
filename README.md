@@ -4,15 +4,18 @@
 3. npm 安装依赖
 
 # aim
-1. 配置postcss
 2. 生产环境提取css文件，并压缩
-3. 配置路由
 4. 选用ts-loader还是babel处理ts
 5. 修改ant-design默认样式
 6. 生产环境关闭react-dev-tools
 
+# feature
+1. react-router v6
+2. 基于路由dynamic
+3. react-refrech
+4. 
+
 # issue
-1. 更新css页面会刷新，使用了module.hot的js模块也会刷新，react需要配置react-hot-loader实现热重载
 
 # 
 -|size

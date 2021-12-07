@@ -3,9 +3,10 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const baseConfig = require('./webpack.base');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 // 执行路径
-console.log(path.resolve('./'));
+console.log(path.resolve('./'), process.env.NODE_ENV);
 
 module.exports = (env) => {
   console.log(env, process.args, 'env\n');
@@ -29,8 +30,8 @@ module.exports = (env) => {
         {
           test: /\.tsx?/,
           use: {
-            loader: 'ts-loader',
-            options: { transpileOnly: true },
+            loader: 'babel-loader',
+            // options: { transpileOnly: true },
           },
           exclude: /node_modules/,
         },
@@ -46,7 +47,7 @@ module.exports = (env) => {
         progress: true,
       },
       // contentBase 被static替换，默认public，作用：修改serve路径
-      static: './',
+      // static: './',
       host: 'local-ip', // 域名
       onListening: (devServer) => {
         if (!devServer) {
@@ -61,6 +62,14 @@ module.exports = (env) => {
     },
     plugins: [
       // new BundleAnalyzerPlugin(),
+
+      // https://github.com/pmmmwh/react-refresh-webpack-plugin/issues/481
+      new ReactRefreshWebpackPlugin({
+        // overlay: false,
+        overlay: {
+          sockHost: '192.168.88.3',
+        },
+      }),
       new webpack.DefinePlugin({
         $DEV: 'true',
       }),

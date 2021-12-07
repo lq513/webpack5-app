@@ -32,8 +32,8 @@ const Root = () => {
 
 ReactDOM.render(<Root/>, document.getElementById('root'));
 
-if (module.hot) {
-  module.hot.accept('./test', () => {
-    console.log(11111);
-  });
-}
+// if (module.hot) {
+//   module.hot.accept('./test', () => {
+//     console.log(11111);
+//   });
+// }
