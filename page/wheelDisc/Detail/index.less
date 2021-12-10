@@ -1,0 +1,187 @@
+.outBox {
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  min-height: 100%;
+  background: #FE3858;
+
+  .topBox {
+    position: relative;
+    min-height: 595px;
+
+    .bakimg {
+      width: 100%;
+      height: auto;
+    }
+
+    .ruleBox {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 75px;
+      height: 75px;
+      text-align: right;
+
+      &>img {
+        height: 100%;
+      }
+    }
+
+    .games {
+      position: absolute;
+      top: 147px;
+      left: 50%;
+      transform: translate(-50%);
+      margin-top: 5px;
+      width: 300px;
+      height: 300px;
+    }
+
+    .pointer {
+      width: 85px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+
+      .times {
+        position: absolute;
+        bottom: 0;
+        color: #FFF4D9;
+        font-weight: 600;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 85px;
+        height: 85px;
+        pointer-events: none;
+
+        &>span {
+          font-weight: normal;
+          font-size: 13px;
+          margin-top: 6px;
+        }
+      }
+
+      &>img {
+        width: 100%;
+      }
+    }
+
+    .winnerInfoBox {
+      position: absolute;
+      bottom: 55px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.2);
+      width: 255px;
+      height: 25px;
+      border-radius: 13px;
+      text-align: center;
+      line-height: 25px;
+      color: #FFF4D9;
+      overflow: hidden;
+    }
+  }
+
+  .taskBox {
+    padding-top: 34px;
+
+    .taskImg {
+      width: 325px;
+      margin: 0 auto;
+      position: relative;
+
+      .taskBtn {
+        background: linear-gradient(to right, #c4c4c4, #b2b2b2);
+        width: 70px;
+        height: 30px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+        pointer-events: none
+      }
+
+      .taskBtnActive {
+        .taskBtn;
+        background: linear-gradient(to right, #FF9A6E, #FF6E98);
+        color: #FFF4D9;
+      }
+
+      &>img {
+        width: 100%;
+      }
+
+    }
+
+    &>.taskImg:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .adBox {
+    padding-top: 20px;
+
+    &>img {
+      width: 325px;
+      height: 90px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &>img:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .failTipBox {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid white;
+    // pointer-events: none;
+
+    .failTip {
+      position: absolute;
+      width: 290px;
+      // height: 205px;
+      background: #fff;
+      bottom: 50%;
+      right: 50%;
+      transform: translate(50%, 50%);
+      border-radius: 15px;
+      color: #373434;
+      padding: 40px 0 30px;
+      font-size: 18px;
+      line-height: 30px;
+      text-align: center;
+
+      .failBtn {
+        width: 150px;
+        height: 50px;
+        background: #FF5757;
+        border-radius: 25px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        font-weight: 600;
+        margin: 32px auto 0;
+      }
+    }
+
+  }
+}

@@ -28,7 +28,7 @@ module.exports = (env) => {
         //   include: path.resolve(__dirname, '../page/index.tsx'),
         // },
         {
-          test: /\.tsx?/,
+          test: /\.(t|j)sx?/,
           use: {
             loader: 'babel-loader',
             // options: { transpileOnly: true },
@@ -53,8 +53,18 @@ module.exports = (env) => {
         if (!devServer) {
           throw new Error('webpack-dev-server is not defined');
         }
-        devServer.app.get('/api', (req, res) => {
-          res.json({ code: '200' });
+        devServer.app.get('/activity/lottery', (req, res) => {
+          const id = Math.floor(Math.random() * 6) + 1;
+          res.json({
+            code: '200',
+            chance: 100,
+            reward: {
+              rewardName: `奖品${id}`,
+              rewardId: id,
+              pic: '',
+              jumpUrl: '',
+            },
+          });
         });
         const port = devServer.server.address().port;
         console.log('Listening on port:', port);

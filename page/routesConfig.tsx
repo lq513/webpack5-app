@@ -17,13 +17,21 @@ export default [
     path: '/',
     element: dynamic(import('./home')),
     children: [
+      // {
+      //   index: true,
+      //   element: dynamic(import('./test')),
+      // },
+      // {
+      //   path: 'test',
+      //   element: dynamic(import('./test')),
+      // },
       {
-        index: true,
-        element: dynamic(import('./test')),
+        path: 'wheelDisc',
+        element: dynamic(import('./wheelDisc/Detail')),
       },
       {
-        path: 'test',
-        element: dynamic(import('./test')),
+        path: 'tree',
+        element: dynamic(import('./tree')),
       },
       // { path: 'task', element: dynamic(import('./task')) },
       // { path: 'autograph', element: dynamic(import('./autograph')) },

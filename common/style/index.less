@@ -1,7 +1,7 @@
 @import './dark.less';
 @import './light.less';
 
-html, body {
+html, body, #root{
   margin: 0;
   padding: 0;
   min-height: 100%;
@@ -11,8 +11,8 @@ html, body {
   box-sizing: border-box;
 }
 
-body {
-  background: rgb(var(--grey-0-rgb));
+html>body {
+  background-color: rgb(var(--grey-0-rgb));
 }
 
 html {
@@ -57,5 +57,16 @@ html {
   } */
   100% {
       background-position: 16vw 0;
+  }
+}
+
+@keyframes moveRight{
+  0%{
+    right: 0;
+    transform: scale(0);
+  }
+  100%{
+    right:-160px;
+    transform:scale(1)
   }
 }

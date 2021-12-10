@@ -24,7 +24,7 @@ const Test = () => {
 
   return (
     <>
-      <img src={cat} />
+      {/* <img src={cat} /> */}
       <h1 className="title">测试标题111111</h1>
       <p style={{ padding: '10px', lineHeight: '1.1', color: 'var(--grey-9-rgb)' }}>{text.toString()}</p>
       <div id="ignore" className='testcss'>测试css</div>

@@ -27,4 +27,20 @@ const handleSourceCode = () => {
   });
 };
 
-export { a, handleTheme, handleSourceCode };
+function chooseLocale() {
+  switch (navigator.language.split('_')[0]) {
+    case 'en':
+      return 'en_US';
+      break;
+    case 'zh':
+      return 'zh_CN';
+      break;
+    default:
+      return 'en_US';
+      break;
+  }
+}
+
+const isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i);
+
+export { a, handleTheme, handleSourceCode, chooseLocale, isMobile };

@@ -1,0 +1,98 @@
+.modal {
+  & div {
+    overflow: visible;
+  }
+
+  .commonBG {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .close {
+      position: absolute;
+      bottom: -45px;
+      color: #FFFFFF;
+      font-size: 31px;
+    }
+
+    &>img {
+      width: 100%;
+    }
+
+    .info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: 92px;
+      width: 260px;
+
+      .reward {
+        color: #7E2C20;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 113px;
+      }
+
+      .btn {
+        position: relative;
+        width: 260px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        color: #FE3858;
+        font-size: 24px;
+        font-weight: 600;
+        background: linear-gradient(#FFE7B4, #FFCC86);
+        animation: breathe 2.5s infinite;
+
+        @keyframes breathe {
+          0% {
+            transform: scale(1);
+          }
+
+          50% {
+            transform: scale(1.08);
+          }
+
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          width: 251px;
+          height: 51px;
+          border: 1px solid #F3C17D;
+          top: 50%;
+          left: 50%;
+          border-radius: 50px;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+  }
+
+  :global {
+    .am-modal-transparent {
+      width: 100%;
+
+      .am-modal-content {
+        padding-top: 0px;
+        border-radius: 3px;
+        background-color: transparent;
+
+        .am-modal-body {
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
