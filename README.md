@@ -8,7 +8,7 @@
 │  ├─home                # 主页面
 │  ├─task                # 录屏测试
 │  ├─test                # 测试功能
-│  ├─tree                # 树组件
+│  ├─tree                # 树组件（适用于pc端）
 │  ├─wheelDisc           # 转盘抽奖
 │  └─routesConfig        # 路由配置
 ├─public                 # 静态资源

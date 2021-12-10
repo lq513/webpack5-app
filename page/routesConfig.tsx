@@ -17,10 +17,10 @@ export default [
     path: '/',
     element: dynamic(import('./home')),
     children: [
-      // {
-      //   index: true,
-      //   element: dynamic(import('./test')),
-      // },
+      {
+        index: true,
+        element: dynamic(import('./wheelDisc/Detail')),
+      },
       // {
       //   path: 'test',
       //   element: dynamic(import('./test')),

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { isMobile } from '@/tools';
+import React, { useMemo, useState } from 'react';
 
 import styles from './index.less';
 
@@ -90,6 +89,10 @@ const Cascader = () => {
   const [ARR, setARR] = useState(initData);
   const [checkedItem, setCheckedItem] = useState<Array<IniType>>([]); // 当前被选择的所有项目
   const [currentItem, setCurrentItem] = useState<IniType | { key?:string,  value?: string }>({}); // 当前被选择的项目
+
+  const isMobile = useMemo(() => {
+    return navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i);
+  }, [navigator.userAgent]);
 
   const notChecked = () => {
     checkedItem.forEach(item => {
