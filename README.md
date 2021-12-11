@@ -28,3 +28,30 @@
 2. 基于路由dynamic
 3. react-refrech
 4. 
+
+# babel配置对应打包体积
+babel配置|size
+---|:--:
+esmodules,不引入regenerator-runtime|1361
+未esmodules,引入regenerator-runtime|1387
+esmodules,引入regenerator-runtime|1302
+esmodules,不引入regenerator-runtime|1276
+
+# tree shaking
+
+> -: 未配置
+
+modules|usedExports|sideEffects|生产|测试
+---|:--:|:--:|:--:|---:
+commonjs|true|false|❌|❌
+commonjs|-|false|❌|❌
+false|true|false|✔|✔
+false|-|false|✔|❌
+false|true|-|✔|✔
+
+# babel-loader/ts-loader
+
+loader|es6-es5|class|类装饰器|api
+---|:--:|:--:|:--:|---:
+babel|preset-env|preset-env||plugin
+ts|target:es5|target:es5|✔|❌

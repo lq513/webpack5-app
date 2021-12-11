@@ -21,10 +21,10 @@ export default [
         index: true,
         element: dynamic(import('./wheelDisc/Detail')),
       },
-      // {
-      //   path: 'test',
-      //   element: dynamic(import('./test')),
-      // },
+      {
+        path: 'test',
+        element: dynamic(import('./test')),
+      },
       {
         path: 'wheelDisc',
         element: dynamic(import('./wheelDisc/Detail')),

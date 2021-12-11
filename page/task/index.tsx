@@ -1,7 +1,7 @@
 import React from 'react';
 import * as rrweb from 'rrweb';
 
-const events = [];
+const events:Array<any> = [];
 rrweb.record({
   emit(event) {
     // 用任意方式存储 event

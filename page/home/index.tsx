@@ -19,7 +19,7 @@ const add = (target: any) => {
 class B {
   private _value = 13;
 
-  set value1(v) {
+  set value(v) {
     console.log(11111);
     this._value = v;
   }
@@ -61,17 +61,17 @@ class Home extends React.Component {
   render() {
     return (
       <div className={styles.homeBox}>
-        {/* <h1>你好！</h1>
+        <h1>你好！</h1>
         <p>
           欢迎使用，有问题可以联系这个邮箱：
           <a href="https://mail.google.com">liuqiang513@gmail.com</a>
         </p>
         <Link to="/test">test | </Link>
         <Link to="/task">task | </Link>
-        <Link to="/autograph">autograph | </Link> */}
+        <Link to="/autograph">autograph | </Link>
         <Link to="/wheeldisc">wheeldisc | </Link>
-        <Link to="/tree">tree</Link>
-        {/* <Link to="/nothing">404</Link> */}
+        <Link to="/tree">tree | </Link>
+        <Link to="/nothing">404</Link>
         <Outlet />
       </div>
     );
