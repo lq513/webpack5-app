@@ -34,7 +34,7 @@ export default [
         element: dynamic(import('./tree')),
       },
       // { path: 'task', element: dynamic(import('./task')) },
-      // { path: 'autograph', element: dynamic(import('./autograph')) },
+      { path: 'autograph', element: dynamic(import('./autograph')) },
       { path: '*', element: '404' },
     ],
   },
