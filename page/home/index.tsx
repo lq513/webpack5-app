@@ -43,12 +43,12 @@ for (let key in b) {
 } 
 
 // promise
-const p = new Promise((resolve) => {
-  setTimeout(() => {
-    resolve('finally1');
-  }, 5000);
-});
-p.then(e => { console.log(e); }).finally(() => {console.log('finally'); });
+// const p = new Promise((resolve) => {
+//   setTimeout(() => {
+//     resolve('finally1');
+//   }, 5000);
+// });
+// p.then(e => { console.log(e); }).finally(() => {console.log('finally'); });
 
 // es6 api
 const arr = [1, 2];
@@ -62,7 +62,7 @@ class Home extends React.Component {
     return (
       <div className={styles.homeBox}>
         <p>
-          欢迎，联系我：
+          联系我：
           <a href="https://mail.google.com">liuqiang513@gmail.com</a>
         </p>
         <Link to="/test">test | </Link>

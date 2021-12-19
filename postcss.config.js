@@ -8,6 +8,7 @@ module.exports = {
       'postcss-px-to-viewport',
       {
         viewportWidth: 375,
+        viewportUnit: 'vmin',
       },
     ],
     [
