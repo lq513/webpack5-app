@@ -17,7 +17,6 @@ const Autograph = () => {
     if (isDown) {
       ctx.beginPath();
       ctx.lineWidth = selected1;
-      debugger
       console.log(selected1, 11111222);
       ctx.strokeStyle = selected2;
       ctx.lineJoin = 'round';

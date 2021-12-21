@@ -26,7 +26,7 @@
 # feature
 1. react-router v6
 2. 基于路由dynamic
-3. react-refrech
+3. react-refresh
 4. 
 
 # babel配置对应打包体积
