@@ -33,6 +33,10 @@ export default [
         path: 'tree',
         element: dynamic(import('./tree')),
       },
+      {
+        path: 'canvas',
+        element: dynamic(import('./canvas')),
+      },
       // { path: 'task', element: dynamic(import('./task')) },
       { path: 'autograph', element: dynamic(import('./autograph')) },
       { path: '*', element: '404' },

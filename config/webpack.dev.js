@@ -48,7 +48,7 @@ module.exports = (env) => {
       },
       // contentBase 被static替换，默认public，作用：修改serve路径
       // static: './',
-      host: 'local-ip', // 域名
+      // host: 'local-ip', // 域名
       onListening: (devServer) => {
         if (!devServer) {
           throw new Error('webpack-dev-server is not defined');
@@ -76,9 +76,10 @@ module.exports = (env) => {
       // https://github.com/pmmmwh/react-refresh-webpack-plugin/issues/481
       new ReactRefreshWebpackPlugin({
         // overlay: false,
-        overlay: {
-          sockHost: '192.168.88.3',
-        },
+        // overlay: {
+        //   sockHost: '172.20.10.5',
+        //   sockHost: '172.20.10.5',
+        // },
       }),
       new webpack.DefinePlugin({
         $DEV: 'true',

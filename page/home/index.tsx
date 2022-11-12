@@ -70,6 +70,7 @@ class Home extends React.Component {
         <Link to="/autograph">autograph | </Link>
         <Link to="/wheeldisc">wheeldisc | </Link>
         <Link to="/tree">tree | </Link>
+        <Link to="/canvas">canvas | </Link>
         <Link to="/nothing">404</Link>
         <Outlet />
       </div>
