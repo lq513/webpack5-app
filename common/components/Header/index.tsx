@@ -20,7 +20,7 @@ const Header = () => {
         <img src='./static/favicon.png' alt='x'/>
       </div>
       <div>
-        夜间模式：
+        黑色模式&nbsp;
         <Switch
           onChange={(checked) => {
             setValue(checked);

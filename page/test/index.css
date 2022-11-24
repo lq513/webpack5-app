@@ -5,21 +5,27 @@ img {
 .title {
   text-align: center;
 }
-
-div.testcss {
+p.paragraph {
   color: rgb(var(--grey-9-rgb));
+  width: 375px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 1.3;
+  border: 1px solid rgb(var(--grey-3-rgb));
+  padding: 10px;
+  border-radius: 2px;
 }
 
 .btn {
   width: 100px;
-  margin: 0 auto;  
+  margin: 0 auto 50px;
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   padding: 5px;
   text-align: center;
-  color: rgb(var(--dsw-primary-standard-rgb));
+  color: rgb(var(--light-primary-2-rgb));
+  background: rgba(var(--dsw-primary-standard-rgb), 0.7);
+  font-size: 9px;
 }

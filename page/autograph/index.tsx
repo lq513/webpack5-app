@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import { Button } from 'antd-mobile';
 import styles from './index.less';
 
 let lastX:number = 0;
@@ -17,7 +17,7 @@ const Autograph = () => {
     if (isDown) {
       ctx.beginPath();
       ctx.lineWidth = selected1;
-      console.log(selected1, 11111222);
+      // console.log(selected1, 11111222);
       ctx.strokeStyle = selected2;
       ctx.lineJoin = 'round';
       ctx.moveTo(lastX, lastY);
@@ -89,10 +89,16 @@ const Autograph = () => {
 
   return (
     <>
-      <canvas ref={cs} width="373" height="500" style={{ border: '1px solid #6699cc' }} />
+      <canvas
+        ref={cs}
+        width="373"
+        height="500"
+        style={{ border: '1px solid #6699cc' }}
+        className={styles.paper}
+      />
       <div className="control-ops control">
-        <div className={styles.btn}>清空画板</div>
-        Line width : 
+        <Button type="primary" className={styles.btn}>清空画板</Button>
+        <b>Line width : </b>
         <select defaultValue={selected1} onChange={(e) => { setS1(+e.target.value); }}>
           <option value={1}>1</option>
           <option value={3}>3</option>
@@ -101,7 +107,7 @@ const Autograph = () => {
           <option value={9}>9</option>
           <option value={11}>11</option>
         </select>
-        Color : 
+        <b>Color : </b>
         <select defaultValue="black" onChange={(e) => { setS2(e.target.value); }} className={styles.colorSelect}>
           <option value="black">balck</option>
           <option value="blue">blue</option>

@@ -8,7 +8,12 @@ module.exports = {
       'postcss-px-to-viewport',
       {
         viewportWidth: 375,
+        fontViewportUnit: 'vmin', // 字体使用的视口单位
         viewportUnit: 'vmin',
+        // propList: ['*', '!line-height'],
+        // landscape: true, // 横屏未生效
+        // landscapeUnit: 'vw',
+        // landscapeWidth: 375,
       },
     ],
     [

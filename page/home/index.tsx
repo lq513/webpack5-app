@@ -56,22 +56,47 @@ const has2 = arr.includes(2);
 // console.log(has2, 'includes');
 
 
-
+const navigation = [
+  {
+    path: '/test',
+    name: 'test',
+  },
+  {
+    path: '/task',
+    name: 'task',
+  },
+  {
+    path: '/autograph',
+    name: 'autograph',
+  },
+  {
+    path: '/wheeldisc',
+    name: 'wheeldisc',
+  },
+  {
+    path: '/tree',
+    name: 'tree',
+  },
+  {
+    path: '/canvas',
+    name: 'canvas',
+  },
+  {
+    path: '/nothing',
+    name: '404',
+  },
+];
 class Home extends React.Component {
   render() {
     return (
       <div className={styles.homeBox}>
-        <p>
-          联系我：
-          <a href="https://mail.google.com">liuqiang513@gmail.com</a>
-        </p>
-        <Link to="/test">test | </Link>
-        <Link to="/task">task | </Link>
-        <Link to="/autograph">autograph | </Link>
-        <Link to="/wheeldisc">wheeldisc | </Link>
-        <Link to="/tree">tree | </Link>
-        <Link to="/canvas">canvas | </Link>
-        <Link to="/nothing">404</Link>
+        { navigation.map((v, i) => (
+          <Link className={styles.link} to={v.path} key={v.path} >
+            {v.name}
+            {navigation.length > i + 1 ? ' | ' : ''}
+          </Link>
+        ))}
+        <br />
         <Outlet />
       </div>
     );

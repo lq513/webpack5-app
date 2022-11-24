@@ -57,7 +57,7 @@ module.exports = {
                 //   console.log(src, '===src');
                 // },
                 auto: /(page\\.*)|(common\\components\\.*)/, // page 目录开启css modules
-                localIdentName: '[folder]_[hash:base64:5]', // path/name/local/hash
+                localIdentName: '[folder]-[local]-[hash:base64:3]', // path/name/local/hash
               },
             },
           },
@@ -86,7 +86,7 @@ module.exports = {
       //   type: 'javascript/auto', // webpack5 stop Asset Module
       // },
       {
-        test: /\.(png|jpg|git$)/,
+        test: /\.(png|jpg|git|webp|svg)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
