@@ -1,0 +1,6 @@
+pipeline:
+  build:
+    image: nginx:latest
+    commands:
+      - go get 
+      - go build
