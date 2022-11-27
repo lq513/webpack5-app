@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, TouchEvent, MouseEvent } from 'react';
 import { Button } from 'antd-mobile';
 import styles from './index.less';
 
@@ -10,6 +10,9 @@ const Autograph = () => {
   const [selected1, setS1] = useState<number>(1);
   const [selected2, setS2] = useState<string>('blue');
   const canvasRef = useRef<HTMLCanvasElement>(null!);
+  const boxRef = useRef<HTMLDivElement>(null!);
+  const btnRef = useRef<HTMLAnchorElement>(null!);
+
   const ctxRef = useRef<CanvasRenderingContext2D>(null!);
   const mousePressedRef = useRef<boolean>(false);
 
@@ -45,16 +48,17 @@ const Autograph = () => {
   }, []);
 
   // 鼠标
-  const handleMousedown = (event: MouseEvent) => {
-    const c = canvasRef.current;
+  const handleMousedown = (event: MouseEvent<HTMLButtonElement>) => {
+    const box = boxRef.current;
+    // console.log(box.offsetLeft, c.offsetLeft);
     mousePressed = true;
-    Draw(event.pageX - c.offsetLeft, event.pageY - c.offsetTop, false);
+    Draw(event.pageX - box.offsetLeft, event.pageY - box.offsetTop + 1, false);
   };
 
-  const handleMousemove = (event: MouseEvent) => {
-    const c = canvasRef.current;
+  const handleMousemove = (event: MouseEvent<HTMLButtonElement>) => {
+    const box = boxRef.current;
     if (mousePressed) {
-      Draw(event.pageX - c.offsetLeft, event.pageY - c.offsetTop, true);
+      Draw(event.pageX - box.offsetLeft, event.pageY - box.offsetTop + 1, true);
     }
   };
 
@@ -63,37 +67,37 @@ const Autograph = () => {
   };
 
   // 触摸屏
-  const handleStart = (event: TouchEvent) => {
-    const c = canvasRef.current;
+  const handleStart = (event: TouchEvent<HTMLButtonElement>) => {
+    const box = boxRef.current;
     console.log(1);
     if (event.targetTouches.length == 1) {
-      event.preventDefault(); // 阻止浏览器默认事件，重要
+      // event.preventDefault(); // 阻止浏览器默认事件，重要
       var touch = event.targetTouches[0];
       mousePressed = true;
-      Draw(touch.pageX - c.offsetLeft, touch.pageY - c.offsetTop, false);
+      Draw(touch.pageX - box.offsetLeft, touch.pageY - box.offsetTop, false);
     }
   };
 
-  const handleMove = (event: TouchEvent) => {
-    const c = canvasRef.current;
+  const handleMove = (event: TouchEvent<HTMLButtonElement>) => {
+    const box = boxRef.current;
     console.log(2);
     if (event.targetTouches.length == 1) {
-      event.preventDefault(); // 阻止浏览器默认事件，重要
+      // event.preventDefault(); // 阻止浏览器默认事件，重要
       var touch = event.targetTouches[0];
       if (mousePressed) {
-        Draw(touch.pageX - c.offsetLeft, touch.pageY - c.offsetTop, true);
+        Draw(touch.pageX - box.offsetLeft, touch.pageY - box.offsetTop, true);
       }
     }
 
   };
 
-  const handleEne = (event: TouchEvent) => {
-    console.log(3);
-    if (event.targetTouches.length === 1) {
-      event.preventDefault(); // 阻止浏览器默认事件，防止手写的时候拖动屏幕，重要
+  const handleEne = (event: TouchEvent<HTMLButtonElement>) => {
+    console.log(3, event.targetTouches);
+    // if (event.targetTouches.length === 1) {
+      // event.preventDefault(); // 阻止浏览器默认事件，防止手写的时候拖动屏幕，重要
       // var touch = event.targetTouches[0];
       mousePressed = false;
-    }
+    // }
   };
 
   const clear = () => {
@@ -102,8 +106,16 @@ const Autograph = () => {
     ctx.clearRect(0, 0, c.width, c.height);
   };
 
+  const handleSave = () => {
+    const c = canvasRef.current;
+    const b = btnRef.current;
+    const tempSrc = c.toDataURL('image/png');
+    b.href = tempSrc;
+    console.log(tempSrc);
+  };
+
   return (
-    <div className={styles.paperBox}>
+    <div className={styles.paperBox} ref={boxRef}>
       <canvas
         ref={canvasRef}
         width="750"
@@ -117,8 +129,7 @@ const Autograph = () => {
         onMouseUp={handleMouseup}
         onMouseMove={handleMousemove}
       />
-      <Button type="primary" className={styles.btn} onClick={clear}>清空画板</Button>
-      <div>
+      <div className={styles.optionsBox}>
         <b>Line width : </b>
         <select defaultValue={selected1} onChange={(e) => { setS1(+e.target.value); }}>
           <option value={1}>1</option>
@@ -137,9 +148,10 @@ const Autograph = () => {
           <option value="yellow">yellow</option>
           <option value="gray">gray</option>
         </select>
-        <div className="saveimg">保存</div>
+        <Button type="primary" className={styles.btn} onClick={handleSave}>保存</Button>
+        <Button type="warning" className={styles.btn} onClick={clear}>清空画板</Button>
       </div>
-      <div className="saveimgs" />
+      <a ref={btnRef} download="1.png">下载</a>
     </div>
   );
 };
