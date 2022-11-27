@@ -3,9 +3,11 @@
 
 > npm run dev
 
+> npm run build
+
 # routes
 ├─page                   # 活动页面
-│  ├─autograph           # 签名（未完成）
+│  ├─autograph           # 签名
 │  ├─home                # 主页面
 │  ├─task                # 录屏测试
 │  ├─test                # 测试功能

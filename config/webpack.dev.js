@@ -1,15 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const baseConfig = require('./webpack.base');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 // 执行路径
-console.log(path.resolve('./'), process.env.NODE_ENV);
-
+console.log(
+  '\x1b[91m',
+  '\n路径：', path.resolve('./'),
+  '\nNODE_ENV：', process.env.NODE_ENV,
+);
 module.exports = (env) => {
-  console.log(env, process.args, 'env\n');
+  console.log(
+    '\nwebpack-env：', env,
+    '\n', process.argv,
+    '\n___________________________________________________',
+  );
 
   return merge(baseConfig, {
     mode: 'development',

@@ -8,7 +8,7 @@ import './index.css';
 import text from 'assets/1.txt';
 import cat from 'assets/cat.jpg';
 // const cat = require('../public/1.gif').default;
-console.log(import.meta.url, 2222222);
+// console.log(import.meta.url, 2222222);
 
 // import { a } from '@/tools';
 // a('./static/1.gif');

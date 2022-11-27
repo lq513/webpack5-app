@@ -1,7 +1,7 @@
-const path = require('path');
+// const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-const TerserPlugin = require('terser-webpack-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
 // https://webpack.docschina.org/guides/output-management/#the-manifest
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
