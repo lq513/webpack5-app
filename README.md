@@ -6,16 +6,16 @@
 > npm run build
 
 # routes
-├─page                   # 活动页面
-│  ├─autograph           # 签名
-│  ├─home                # 主页面
-│  ├─task                # 录屏测试
-│  ├─test                # 测试功能
-│  ├─tree                # 树组件（适用于pc端）
-│  ├─wheelDisc           # 转盘抽奖
-│  └─routesConfig        # 路由配置
-├─public                 # 静态资源
-├─dps.config.js          # 骨架配置
+├─page                   # 活动页面 <br />
+│  ├─autograph           # 签名 <br />
+│  ├─home                # 主页面 <br />
+│  ├─task                # 录屏测试 <br />
+│  ├─test                # 测试功能 <br />
+│  ├─tree                # 树组件（适用于pc端） <br />
+│  ├─wheelDisc           # 转盘抽奖 <br />
+│  └─routesConfig        # 路由配置 <br />
+├─public                 # 静态资源 <br />
+├─dps.config.js          # 骨架配置 <br />
 
 # notice
 1. 除了 './common/style' 下的样式文件和所有的.css文件均会被tree-shaking;
