@@ -29,16 +29,17 @@ module.exports = api => {
     'plugins': [
       ...dev ? [require.resolve('react-refresh/babel')] : [],
       ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-      [
-        'import', {
-          'libraryName': 'antd-mobile',
-          'style': true, // less 体积较小
-          // "customStyleName": (name) => {
-          //   console.log(name, 1111)
-          //   return require('path').resolve(__dirname, './common/style/index.css');
-          // }
-        }, 
-      ],
+      // antd-mobile v5 不需要配置 babel-plugin-import 了
+      // [
+      //   'import', {
+      //     'libraryName': 'antd-mobile',
+      //     'style': true, // less 体积较小
+      //     // "customStyleName": (name) => {
+      //     //   console.log(name, 1111)
+      //     //   return require('path').resolve(__dirname, './common/style/index.css');
+      //     // }
+      //   }, 
+      // ],
     ],
   };
 };

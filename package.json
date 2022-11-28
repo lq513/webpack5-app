@@ -10,7 +10,7 @@
   "dependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.9",
     "@types/webpack-env": "^1.16.3",
-    "antd-mobile": "^2.3.4",
+    "antd-mobile": "^5.26.0",
     "autoprefixer": "^10.4.13",
     "axios": "^0.24.0",
     "caniuse-lite": "^1.0.30001434",
@@ -67,7 +67,7 @@
     "postcss-px-to-viewport": "^1.1.1",
     "react-refresh": "^0.11.0",
     "ts-loader": "^9.2.6",
-    "typescript": "^4.4.4",
+    "typescript": "^4.9.3",
     "webpack-dev-server": "^4.2.1",
     "webpack-nano": "^1.1.1"
   },

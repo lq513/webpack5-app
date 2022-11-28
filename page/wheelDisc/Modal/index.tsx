@@ -46,17 +46,16 @@ export default class CommonModal extends Component<CommonModalProps> {
     if (!modalType) return null;
     return (
       <Modal
-        animated={false}
-        transparent
         visible={!!modalType}
         onClose={this._onClose}
-        wrapClassName={styles.modal}
-      >
-        <div className={styles.commonBG}>
-          {this._renderContent()}
-          <div className={styles.close} onClick={this._onClose} />
-        </div>
-      </Modal>
+        className={styles.modal}
+        bodyStyle={{ backgroundColor: 'transparent', padding: 0, maxHeight: 'fit-content' }}
+        content={
+          <div className={styles.commonBG}>
+            {this._renderContent()}
+          </div>
+        }
+      />
     );
   }
 }

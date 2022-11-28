@@ -10,13 +10,6 @@
     align-items: center;
     position: relative;
 
-    .close {
-      position: absolute;
-      bottom: -45px;
-      color: #FFFFFF;
-      font-size: 31px;
-    }
-
     &>img {
       width: 375px;
     }
@@ -32,8 +25,9 @@
       .reward {
         color: #7E2C20;
         font-size: 20px;
-        font-weight: 600;
+        font-weight: 700;
         margin-bottom: 113px;
+        text-align: center;
       }
 
       .btn {
@@ -79,20 +73,13 @@
     }
 
   }
-
+  
   :global {
-    .am-modal-transparent {
-      width: 100%;
-
-      .am-modal-content {
-        padding-top: 0px;
-        border-radius: 3px;
-        background-color: transparent;
-
-        .am-modal-body {
-          padding: 0px;
-        }
-      }
+    .adm-center-popup-wrap {
+      max-width: 375px;
+    }
+    .adm-modal-content {
+      max-height: fit-content;
     }
   }
 }

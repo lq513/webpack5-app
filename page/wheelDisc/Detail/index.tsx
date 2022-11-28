@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Toast, Carousel } from 'antd-mobile';
+import React, { useState, useEffect } from 'react';
+import { Toast, Swiper } from 'antd-mobile';
 import axios from 'axios';
 import Modal from '../Modal';
 
@@ -50,8 +50,8 @@ const testData1 = [
     rewardName: 'sdaf',
   },
   {
-    phone: 18638233576,
-    rewardName: 'sdaf',
+    phone: 18638233572,
+    rewardName: 'sdaf12',
   },
 ];
 
@@ -114,12 +114,18 @@ const WheelDiscDetail = () => {
     }
     // 强制登录且抽奖次数为0 -> 禁止用户抽奖
     if (!lotteryTimes) {
-      Toast.info('转盘次数已用光，完成任务获取更多抽奖机会!');
+      Toast.show({
+        content: '转盘次数已用光，完成任务获取更多抽奖机会!',
+        duration: 2,
+      });
       return;
     }
     // 转盘旋转中禁止用户再次点击
     if (runnig) {
-      Toast.info('请稍后～～', 2);
+      Toast.show({
+        content: '请稍后～～',
+        duration: 2,
+      });
       return;
     }
     clearInterval(timer);
@@ -207,22 +213,23 @@ const WheelDiscDetail = () => {
           />
         </div>
         {
-          +activityInfo.showLantern && winnerInfo && winnerInfo.length ? (
+          +activityInfo.showLantern && winnerInfo?.length ? (
             <div className={styles.winnerInfoBox}>
-              <Carousel
-                vertical
-                dots={false}
-                dragging={false}
-                swiping={false}
+              <Swiper
+                direction="vertical"
+                indicator={() => null}
                 autoplay
-                infinite
+                loop
+                style={{ height: '100%' }}
               >
                 {
                   winnerInfo.map(v => (
-                    <div key={Math.random()}>恭喜 {v.phone} 获得{v.rewardName}</div>
+                    <Swiper.Item key={Math.random()}>
+                      恭喜 {v.phone} 获得{v.rewardName}
+                    </Swiper.Item>
                   ))
                 }
-              </Carousel>
+              </Swiper>
             </div>
           ) : null
         }
