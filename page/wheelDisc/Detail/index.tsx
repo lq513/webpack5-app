@@ -116,7 +116,7 @@ const WheelDiscDetail = () => {
     if (!lotteryTimes) {
       Toast.show({
         content: '转盘次数已用光，完成任务获取更多抽奖机会!',
-        duration: 2,
+        duration: 2000,
       });
       return;
     }
@@ -124,7 +124,7 @@ const WheelDiscDetail = () => {
     if (runnig) {
       Toast.show({
         content: '请稍后～～',
-        duration: 2,
+        duration: 2000,
       });
       return;
     }

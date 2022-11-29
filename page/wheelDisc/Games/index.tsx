@@ -3,12 +3,12 @@ import React from 'react';
 import styles from './index.less';
 
 interface GamesProps {
-  cName: string,
+  cName?: string,
   rewards: any[],
   currentAngle: number,
 }
 
-const Games = (props:GamesProps) => {
+const Games = (props: GamesProps) => {
   const { cName, rewards = [], currentAngle } = props;
   let gridImg = null;
   if (rewards.length !== 4 && rewards.length !== 6) {

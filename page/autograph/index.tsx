@@ -16,7 +16,7 @@ const Autograph = () => {
   const [selected1, setS1] = useState<number>(5);
   const [selected2, setS2] = useState<string>('blue');
   const [createImgArr, setCreateImgArr] = useState<CreateImgType[]>([]);
-  const [current, setCurrent] = useState();
+  const [current, setCurrent] = useState<CreateImgType>();
   const [visible, setVisible] = useState(false);
 
   const canvasRef = useRef<HTMLCanvasElement>(null!);

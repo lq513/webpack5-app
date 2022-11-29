@@ -1,5 +1,6 @@
 declare module '*.jpg';
 declare module '*.gif';
+declare module '*.svg';
 declare module '*.txt';
 
 declare const $DEV:boolean;

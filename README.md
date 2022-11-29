@@ -23,7 +23,6 @@
 3. 打包后如有报错（Uncaught ReferenceError: $RefreshSig$ is not defined）删除configcache文件后重试
 
 # aim
-5. 修改ant-design默认样式
 6. 生产环境关闭react-dev-tools
 
 # feature
