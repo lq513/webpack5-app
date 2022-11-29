@@ -1,13 +1,9 @@
-img {
-  /* width: 375px;
-  height: 250px; */
-}
 .title {
   text-align: center;
 }
 p.paragraph {
   color: rgb(var(--grey-9-rgb));
-  width: 375px;
+  width: 350px;
   margin: 0 auto;
   font-size: 12px;
   line-height: 1.3;

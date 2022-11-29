@@ -6,7 +6,7 @@ import './index.css';
 
 // 测试静态文件打包
 import text from 'assets/1.txt';
-import cat from 'assets/cat.jpg';
+// import cat from 'assets/cat.jpg';
 // const cat = require('../public/1.gif').default;
 // console.log(import.meta.url, 2222222);
 
@@ -35,7 +35,7 @@ const Test = () => {
       <h2 className="title">测试标题</h2>
       <p className="paragraph">{text.toString()}</p>
       <div id="ignore" style={{ padding: '10px', lineHeight: '1.1', color: 'var(--grey-9-rgb)' }}>测试css</div>
-      <Button type="warning" className="btn">test antd</Button>
+      <Button color="warning" className="btn">test antd</Button>
       <div className="footer">
         <div>{time}</div>
         {/* <a id="ignore1">webpack | </a>
