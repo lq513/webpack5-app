@@ -50,6 +50,7 @@ module.exports = (env) => {
       open: true,
       // When using the HTML5 History API, the index.html page will likely have to be served in place of any 404 responses.
       historyApiFallback: true,
+      allowedHosts: 'all',
       client: {
         progress: true,
       },

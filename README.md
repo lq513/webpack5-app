@@ -27,9 +27,10 @@
 
 # feature
 1. react-router v6
-2. 基于路由dynamic
+2. 基于路由 dynamic
 3. react-refresh
-4. 
+4. 友好的换肤功能
+5. tree shaking
 
 # babel配置对应打包体积
 babel配置|size
