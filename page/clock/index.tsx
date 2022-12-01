@@ -57,6 +57,7 @@ const CanvasTest = () => {
   };
 
   const drawClock = (ctx: CanvasRenderingContext2D, x, y, r, r1) => {
+    ctx.clearRect(0, 0, 2 * x, 2 * y);
     const gradients = ctx.createRadialGradient(
       x, y, r1,
       x, y, r,
@@ -66,6 +67,10 @@ const CanvasTest = () => {
     gradients.addColorStop(0.8, '#f4f4f4');
     gradients.addColorStop(1, '#ccc');
     ctx.fillStyle = gradients;
+    ctx.shadowColor = '#a4a4a4';
+    ctx.shadowOffsetX = 6;
+    ctx.shadowBlur = 10;
+
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fill();
@@ -121,6 +126,12 @@ const CanvasTest = () => {
     drawPointer(ctx, x, y, 12, 125, hour * hourPiece + min / 60 * hourPiece, '#ccc');
     drawPointer(ctx, x, y, 8, 195, min * 360 / 60 + sec / 60 * minOrSecPiece);
     drawPointer(ctx, x, y, 2, 195, sec * 360 / 60 + mSec / 60 * mSecPiece, 'red');
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.restore();
     timerRef.current = window.requestAnimationFrame(() => {
       drawClock(ctx, x, y, r, r1);
     });
