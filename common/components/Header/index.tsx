@@ -30,8 +30,8 @@ const Header = () => {
       </div>
       <Switch
         style={{ '--height': '22px', '--width': '30px' }}
-        uncheckedText={<img src={Sun} />}
-        checkedText={<img src={Moon} />}
+        uncheckedText={<div dangerouslySetInnerHTML={{ __html: Sun }} />}
+        checkedText={<div dangerouslySetInnerHTML={{ __html: Moon }} />}
         onChange={(checked) => {
           setValue(checked);
           handleTheme(checked);
