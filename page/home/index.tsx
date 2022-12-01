@@ -78,8 +78,8 @@ const navigation = [
     name: 'tree',
   },
   {
-    path: '/canvas',
-    name: 'canvas',
+    path: '/clock',
+    name: 'clock',
   },
   {
     path: '/nothing',

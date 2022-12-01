@@ -8,6 +8,7 @@
 # routes
 ├─page                   # 活动页面 <br />
 │  ├─autograph           # 签名 <br />
+│  ├─clock               # 时钟 <br />
 │  ├─home                # 主页面 <br />
 │  ├─task                # 录屏测试 <br />
 │  ├─test                # 测试功能 <br />

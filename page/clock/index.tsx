@@ -5,6 +5,7 @@ import { angleToArc } from '@/tools';
 
 const CanvasTest = () => {
   const can = useRef<HTMLCanvasElement>(null!);
+  const timerRef = useRef<number>();
 
   const drawSubline = (ctx: CanvasRenderingContext2D, site: number, direction: 'vertical' | 'horizontal') => {
     const canvas = can.current;
@@ -29,20 +30,36 @@ const CanvasTest = () => {
     ctx.restore();
   };
 
-  useEffect(() => {
-    const canvas = can.current;
-    const W = canvas.width;
-    const H = canvas.height;
-    const w = W / 2;
-    const h = H / 2;
-    // 外径
-    const r = 300;
-    // 内径
-    const r1 = 260;
-    const ctx = canvas?.getContext('2d') as CanvasRenderingContext2D;
+  /**
+   * x, y 指针中心点坐标;
+   * w 指针一半的宽度;
+   * h 指针长侧长度;
+   * ang 指针角度;
+   */
+  const drawPointer = (
+    ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number,
+    ang: number,
+    color?: string,
+  ) => {
+    ctx.save();
+    ctx.beginPath();
+    ctx.translate(x, y);
+    ctx.rotate(angleToArc(ang));
+    // 顶点
+    ctx.moveTo(0, - h);
+    ctx.lineTo(w, 0);
+    ctx.lineTo(0, 0.1 * h);
+    ctx.lineTo(- w, 0);
+    ctx.fillStyle = color || '#333';
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  };
+
+  const drawClock = (ctx: CanvasRenderingContext2D, x, y, r, r1) => {
     const gradients = ctx.createRadialGradient(
-      w, h, r1,
-      w, h, r,
+      x, y, r1,
+      x, y, r,
     );
     gradients.addColorStop(0, '#fff');
     gradients.addColorStop(0.1, '#b8b8b8');
@@ -50,12 +67,12 @@ const CanvasTest = () => {
     gradients.addColorStop(1, '#ccc');
     ctx.fillStyle = gradients;
     ctx.beginPath();
-    ctx.arc(w, h, r, 0, 2 * Math.PI);
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fill();
     
     // # 钟表刻度
     ctx.save();
-    ctx.translate(w, h);
+    ctx.translate(x, y);
     for (let i = 0; i < 60; i ++) {
       ctx.beginPath();
       ctx.moveTo(0, -r1);
@@ -82,10 +99,9 @@ const CanvasTest = () => {
         ctx.drawImage(canvas2, 0 - 50, -200 - 50);
 
         ctx.lineWidth = 8;
-        console.log(text);
         ctx.lineTo(0, -230);
       } else {
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3;
         ctx.lineTo(0, -240);
       }
 
@@ -93,14 +109,48 @@ const CanvasTest = () => {
       ctx.stroke();
     }
     ctx.restore();
-
-
     
-    drawSubline(ctx, 75, 'vertical');
-    drawSubline(ctx, 115, 'vertical');
-    drawSubline(ctx, 115, 'horizontal');
-    drawSubline(ctx, 375, 'vertical');
-    drawSubline(ctx, 375, 'horizontal');
+    const hour = new Date().getHours();
+    const min = new Date().getMinutes();
+    const sec = new Date().getSeconds();
+    const mSec = new Date().getMilliseconds();
+    // console.log(hour, min, sec, mSec);
+    const hourPiece = 360 / 12;
+    const minOrSecPiece = 360 / 60;
+    const mSecPiece = 360 / 1000;
+    drawPointer(ctx, x, y, 12, 125, hour * hourPiece + min / 60 * hourPiece, '#ccc');
+    drawPointer(ctx, x, y, 8, 195, min * 360 / 60 + sec / 60 * minOrSecPiece);
+    drawPointer(ctx, x, y, 2, 195, sec * 360 / 60 + mSec / 60 * mSecPiece, 'red');
+    timerRef.current = window.requestAnimationFrame(() => {
+      drawClock(ctx, x, y, r, r1);
+    });
+  };
+
+  useEffect(() => {
+    const canvas = can.current;
+    const W = canvas.width;
+    const H = canvas.height;
+    const w = W / 2;
+    const h = H / 2;
+    // 外径
+    const r = 300;
+    // 内径
+    const r1 = 260;
+    const ctx = canvas?.getContext('2d') as CanvasRenderingContext2D;
+    
+    timerRef.current = window.requestAnimationFrame(() => {
+      drawClock(ctx, w, h, r, r1);
+    });
+    
+    // drawSubline(ctx, 75, 'vertical');
+    // drawSubline(ctx, 115, 'vertical');
+    // drawSubline(ctx, 115, 'horizontal');
+    // drawSubline(ctx, 375, 'vertical');
+    // drawSubline(ctx, 375, 'horizontal');
+    return () => {
+      console.log('xi');
+      if (timerRef.current) window.cancelAnimationFrame(timerRef.current);
+    };
   }, []);
   
   const handleClick = (e: MouseEvent<HTMLCanvasElement>) => {
