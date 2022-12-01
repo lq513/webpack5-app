@@ -56,8 +56,9 @@ const CanvasTest = () => {
     ctx.restore();
   };
 
-  const drawClock = (ctx: CanvasRenderingContext2D, x, y, r, r1) => {
+  const drawClock = (ctx: CanvasRenderingContext2D, x: number, y: number, r: number, r1: number) => {
     ctx.clearRect(0, 0, 2 * x, 2 * y);
+    // # 盘面
     const gradients = ctx.createRadialGradient(
       x, y, r1,
       x, y, r,
@@ -75,7 +76,7 @@ const CanvasTest = () => {
     ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fill();
     
-    // # 钟表刻度
+    // # 刻度
     ctx.save();
     ctx.translate(x, y);
     for (let i = 0; i < 60; i ++) {
@@ -83,12 +84,12 @@ const CanvasTest = () => {
       ctx.moveTo(0, -r1);
       ctx.strokeStyle = '#333';
       ctx.fillStyle = '#333';
-      // ctx.font = '30px serif';
-      // ctx.textAlign = 'center';
       const text = `${i / 5 || 12}`;
+      const unit = 360 / 60;
 
       if (i % 5 === 0) {
         const canvas2 = document.createElement('canvas');
+        const textSize = 30;
         canvas2.width = 100;
         canvas2.height = 100;
         // canvas2.style.border = '1px solid red';
@@ -97,9 +98,9 @@ const CanvasTest = () => {
         // drawSubline(ctx2, 50, 'vertical');
         // drawSubline(ctx2, 50, 'horizontal');
         ctx2?.translate(50, 50);
-        ctx2?.rotate(angleToArc(-6 * i));
-        ctx2.font = '30px serif';
-        ctx2.fillText(text, 0, 15);
+        ctx2?.rotate(angleToArc(-unit * i));
+        ctx2.font =  `${textSize}px serif`;
+        ctx2.fillText(text, 0, textSize / 2);
         // document.body.append(canvas2);
         ctx.drawImage(canvas2, 0 - 50, -200 - 50);
 
@@ -110,11 +111,12 @@ const CanvasTest = () => {
         ctx.lineTo(0, -240);
       }
 
-      ctx.rotate(angleToArc(6));
+      ctx.rotate(angleToArc(unit));
       ctx.stroke();
     }
     ctx.restore();
     
+    // # 指针
     const hour = new Date().getHours();
     const min = new Date().getMinutes();
     const sec = new Date().getSeconds();
@@ -127,6 +129,7 @@ const CanvasTest = () => {
     drawPointer(ctx, x, y, 8, 195, min * 360 / 60 + sec / 60 * minOrSecPiece);
     drawPointer(ctx, x, y, 2, 195, sec * 360 / 60 + mSec / 60 * mSecPiece, 'red');
 
+    // # 中心
     ctx.save();
     ctx.beginPath();
     ctx.arc(x, y, 10, 0, 2 * Math.PI);
