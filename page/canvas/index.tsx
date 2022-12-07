@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 import imgSrc from 'assets/patterning.png';
 
 const Test = () => {
+  const [text, setText] = useState('计算中...');
   const arrRef = useRef<Array<number[]>>([]);
   const arr = arrRef.current;
   const getArea = (x: number, y: number, num: number) => {
@@ -60,11 +61,14 @@ const Test = () => {
         }
       }
       console.log(analyzeData);
+      setText(`共计${analyzeData.length}个图形，面积分别为${analyzeData.join('px,')}px`);
     };
   }, []);
   
   return <>
-    <canvas id="myCanvas" width="350" height="200"/>
+    <canvas id="myCanvas" width="350" height="200" />
+    <br />
+    <div style={{ wordBreak: 'break-all', color: 'var(--grey-9-rgb)' }}>{text}</div>
   </>;
 };
 
