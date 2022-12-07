@@ -82,6 +82,10 @@ const navigation = [
     name: 'clock',
   },
   {
+    path: '/canvas',
+    name: 'canvas',
+  },
+  {
     path: '/nothing',
     name: '404',
   },

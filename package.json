@@ -87,6 +87,7 @@
     "last 2 versions",
     "> 1%",
     "iOS >= 7",
-    "Android >= 4.0"
+    "Android >= 4.0",
+    "not dead"
   ]
 }

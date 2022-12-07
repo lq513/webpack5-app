@@ -86,7 +86,7 @@ module.exports = {
       //   type: 'javascript/auto', // webpack5 stop Asset Module
       // },
       {
-        test: /\.(png|jpg|git|webp)$/,
+        test: /\.(png|jpg|gif|webp)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
@@ -98,7 +98,11 @@ module.exports = {
         },
       },
       {
-        test: /\.txt|svg$/,
+        test: /\.svg/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /\.txt$/,
         type: 'asset/source', // 原样输出
       },
     ],

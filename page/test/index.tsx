@@ -7,7 +7,7 @@ import './index.css';
 // 测试静态文件打包
 import text from 'assets/1.txt';
 // import cat from 'assets/cat.jpg';
-// const cat = require('../public/1.gif').default;
+// const cat = require('/public/1.gif');
 // console.log(import.meta.url, 2222222);
 
 // import { a } from '@/tools';

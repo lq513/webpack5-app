@@ -43,7 +43,11 @@ function chooseLocale() {
 
 const isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Backerry|WebOS|Symbian|Windows Phone|Phone)/i);
 
-// 度转化为弧
+/**
+ * 度转化为弧
+ * 
+ * ang 角度;
+ */
 const angleToArc = (ang: number) => Math.PI / 180 * ang;
 
 export { a, handleTheme, handleSourceCode, chooseLocale, isMobile, angleToArc };
