@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Plugin = require('./extension/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpackbar = require('webpackbar');
 
 module.exports = {
   // context: path.resolve(__dirname, '../page'),
@@ -108,6 +109,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpackbar(),
     // new webpack.ProvidePlugin({
     //   React: 'react',
     // }),
