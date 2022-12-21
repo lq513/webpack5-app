@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import routesConfig from './routesConfig';
@@ -20,19 +20,14 @@ const Root = () => {
     // });
   }, []);
 
-  return (<>
+  return (
+  <Suspense fallback="加载中...">
     <Header/>
     <Router>
       <RoutesConfig/>
     </Router>
-  </>);
+  </Suspense>);
 };
 
 const root = document.getElementById('root')!;
 ReactDOM.createRoot(root).render(<Root />);
-
-// if (module.hot) {
-//   module.hot.accept('./test', () => {
-//     console.log(11111);
-//   });
-// }

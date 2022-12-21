@@ -1,48 +1,45 @@
-import React, { ComponentType, Suspense } from 'react';
+import React, { lazy } from 'react';
 
-const dynamic = (
-  ele: Promise<{ default: ComponentType<any> }>,
-  loading?: React.ReactElement,
-) => {
-  const Ele = React.lazy(() => ele);
-  return (
-    <Suspense fallback={loading || '加载中...'}>
-      <Ele/>
-    </Suspense>
-  );
-};
+const Home = lazy(() => import('./home'));
+const WheelDisc = lazy(() => import('./wheelDisc/Detail'));
+const Test = lazy(() => import('./test'));
+// const Task = lazy(() => import('./task'));
+const Tree = lazy(() => import('./tree'));
+const Clock = lazy(() => import('./clock'));
+const Canvas = lazy(() => import('./canvas'));
+const Autograph = lazy(() => import('./autograph'));
 
 export default [
   {
     path: '/',
-    element: dynamic(import('./home')),
+    element: <Home />,
     children: [
       {
         index: true,
-        element: dynamic(import('./wheelDisc/Detail')),
+        element: <WheelDisc/>,
       },
       {
         path: 'test',
-        element: dynamic(import('./test')),
+        element: <Test />,
       },
       {
         path: 'wheelDisc',
-        element: dynamic(import('./wheelDisc/Detail')),
+        element:  <WheelDisc/>,
       },
       {
         path: 'tree',
-        element: dynamic(import('./tree')),
+        element: <Tree />,
       },
       {
         path: 'clock',
-        element: dynamic(import('./clock')),
+        element: <Clock />,
       },
       {
         path: 'canvas',
-        element: dynamic(import('./canvas')),
+        element: <Canvas />,
       },
-      // { path: 'task', element: dynamic(import('./task')) },
-      { path: 'autograph', element: dynamic(import('./autograph')) },
+      // { path: 'task', element: <Task/> },
+      { path: 'autograph', element: <Autograph /> },
       { path: '*', element: '404' },
     ],
   },

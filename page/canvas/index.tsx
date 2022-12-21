@@ -14,6 +14,7 @@ const Test = () => {
   const [coord, setCoord] = useState<CoordType>({ cx: 0, cy: 0, color: '' });
   const [visible, setvisible] = useState<boolean>(false);
   const canvasRef = useRef<HTMLCanvasElement>(null!);
+  const canvasRef2 = useRef<HTMLCanvasElement>(null!);
   const arrRef = useRef<Array<number[]>>([]);
   const arr = arrRef.current;
 
@@ -90,6 +91,25 @@ const Test = () => {
     setCoord({ cx: clientX, cy: clientY, color: `${r},${g},${b},${a / 255}` });
     setvisible(true);
     // console.log(cx, cy);
+
+    const ctx2 = canvasRef2.current.getContext('2d') as CanvasRenderingContext2D;
+    ctx2.imageSmoothingEnabled = false;
+    // @ts-ignore
+    ctx2.mozImageSmoothingEnabled = false;
+    // @ts-ignore
+    ctx2.webkitImageSmoothingEnabled = false;
+    // @ts-ignore
+    ctx2.msImageSmoothingEnabled = false;
+    ctx2.fillStyle = '#fff';
+    ctx2?.fillRect(0, 0, 350, 200);
+    ctx2?.drawImage(
+      canvas,
+      Math.min(Math.max(0, cx - 5), canvas.width - 10),
+      Math.min(Math.max(0, cy - 5), canvas.height - 10),
+      10, 10, // sw, sh
+      0, 0,
+      100, 100,
+    );
   };
 
   const handleOutsideMove = () => {
@@ -102,6 +122,12 @@ const Test = () => {
       width="350"
       height="200"
       onMouseMove={handleMove}
+    />
+    &nbsp;
+    <canvas
+      ref={canvasRef2}
+      width="100"
+      height="100"
     />
     {
       visible && (
