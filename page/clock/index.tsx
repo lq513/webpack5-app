@@ -6,8 +6,8 @@ import { angleToArc } from '@/tools';
 const CanvasTest = () => {
   const can = useRef<HTMLCanvasElement>(null!);
   const timerRef = useRef<number>();
-
-  const drawSubline = (ctx: CanvasRenderingContext2D, site: number, direction: 'vertical' | 'horizontal') => {
+  
+  const drawSubline = (ctx: CanvasRenderingContext2D, site: number, direction?: 'vertical' | 'horizontal') => {
     const canvas = can.current;
     ctx.save();
     ctx.beginPath();
@@ -75,59 +75,53 @@ const CanvasTest = () => {
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2 * Math.PI);
     ctx.fill();
-    
+
     // # 刻度
     ctx.save();
     ctx.translate(x, y);
+    const textSize = 30;
     for (let i = 0; i < 60; i ++) {
       ctx.beginPath();
       ctx.moveTo(0, -r1);
       ctx.strokeStyle = '#333';
-      ctx.fillStyle = '#333';
       const text = `${i / 5 || 12}`;
       const unit = 360 / 60;
 
       if (i % 5 === 0) {
         const canvas2 = document.createElement('canvas');
-        const textSize = 30;
         canvas2.width = 100;
         canvas2.height = 100;
-        // canvas2.style.border = '1px solid red';
         const ctx2 = canvas2.getContext('2d') as CanvasRenderingContext2D;
         ctx2.textAlign = 'center';
-        // drawSubline(ctx2, 50, 'vertical');
-        // drawSubline(ctx2, 50, 'horizontal');
-        ctx2?.translate(50, 50);
-        ctx2?.rotate(angleToArc(-unit * i));
-        ctx2.font =  `${textSize}px serif`;
+        ctx2.fillStyle = '#333';
+        ctx2.translate(50, 50);
+        ctx2.rotate(angleToArc(-unit * i));
+        ctx2.font = `${textSize}px Helvetica Neue, Helvetica, Arial, sans-serif`;
         ctx2.fillText(text, 0, textSize / 2);
         // document.body.append(canvas2);
-        ctx.drawImage(canvas2, 0 - 50, -200 - 50);
-
+        ctx.drawImage(canvas2, 0 - 50, -r1 + 60 - 50);
         ctx.lineWidth = 8;
-        ctx.lineTo(0, -230);
+        ctx.lineTo(0, -r1 + 30);
       } else {
         ctx.lineWidth = 3;
-        ctx.lineTo(0, -240);
+        ctx.lineTo(0, -r1 + 20);
       }
 
-      ctx.rotate(angleToArc(unit));
       ctx.stroke();
+      ctx.rotate(angleToArc(unit));
     }
     ctx.restore();
-    
+
     // # 指针
     const hour = new Date().getHours();
     const min = new Date().getMinutes();
     const sec = new Date().getSeconds();
     const mSec = new Date().getMilliseconds();
-    // console.log(hour, min, sec, mSec);
     const hourPiece = 360 / 12;
     const minOrSecPiece = 360 / 60;
-    const mSecPiece = 360 / 1000;
-    drawPointer(ctx, x, y, 12, 125, hour * hourPiece + min / 60 * hourPiece, '#ccc');
-    drawPointer(ctx, x, y, 8, 195, min * 360 / 60 + sec / 60 * minOrSecPiece);
-    drawPointer(ctx, x, y, 2, 195, sec * 360 / 60 + mSec / 60 * mSecPiece, 'red');
+    drawPointer(ctx, x, y, 12, 125, hourPiece * (hour + min / 60), '#ccc');
+    drawPointer(ctx, x, y, 8, 195, minOrSecPiece * (min + sec / 60));
+    drawPointer(ctx, x, y, 2, 195, minOrSecPiece * (sec + mSec / 1000), 'red');
 
     // # 中心
     ctx.save();
@@ -139,7 +133,7 @@ const CanvasTest = () => {
       drawClock(ctx, x, y, r, r1);
     });
   };
-
+  
   useEffect(() => {
     const canvas = can.current;
     const W = canvas.width;
@@ -155,12 +149,12 @@ const CanvasTest = () => {
     timerRef.current = window.requestAnimationFrame(() => {
       drawClock(ctx, w, h, r, r1);
     });
-    
+
     // drawSubline(ctx, 75, 'vertical');
     // drawSubline(ctx, 115, 'vertical');
-    // drawSubline(ctx, 115, 'horizontal');
+    // drawSubline(ctx, 115);
     // drawSubline(ctx, 375, 'vertical');
-    // drawSubline(ctx, 375, 'horizontal');
+    // drawSubline(ctx, 375);
     return () => {
       console.log('xi');
       if (timerRef.current) window.cancelAnimationFrame(timerRef.current);
