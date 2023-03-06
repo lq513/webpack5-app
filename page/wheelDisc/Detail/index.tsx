@@ -70,7 +70,7 @@ const WheelDiscDetail = () => {
   }), []);
 
   // 获取最终角度
-  const getFinalAngle = (_currentAngle:number, startAngle:number, currentIndex:(string | boolean)) => {
+  const getFinalAngle = (_currentAngle:number, startAngle:number, currentIndex:(string | number)) => {
     const { rewards = [] } = activityInfo;
     let finalAngle = 0;
     const unit = 360 / rewards.length; // 每个奖项所占的角度
