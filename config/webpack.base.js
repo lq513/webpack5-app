@@ -34,6 +34,7 @@ module.exports = {
       'coms': path.resolve(__dirname, '../common/components'),
       'style': path.resolve(__dirname, '../common/style'),
       'assets': path.resolve(__dirname, '../common/assets'),
+      'i18n': path.resolve(__dirname, '../i18n'),
     },
   },
   module: {

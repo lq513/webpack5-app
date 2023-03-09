@@ -35,7 +35,7 @@ module.exports = (env) => {
         //   include: path.resolve(__dirname, '../page/index.tsx'),
         // },
         {
-          test: /\.(t|j)sx?/,
+          test: /\.(t|j)sx?$/,
           use: {
             loader: 'babel-loader',
             // options: { transpileOnly: true },

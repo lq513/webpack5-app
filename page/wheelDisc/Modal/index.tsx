@@ -34,7 +34,7 @@ export default class CommonModal extends Component<CommonModalProps> {
       <Fragment>
         <img src={require(`../img/modal${modalType}.png`)} alt="背景" />
         <div className={styles.info}>
-          {modalType === 2 ? <div className={styles.reward}>{awardInfo.rewardName || '奖品'}</div> : null}
+          {modalType === 2 ? <div className={styles.reward}>{awardInfo?.rewardName || '奖品'}</div> : null}
           <div className={styles.btn} onClick={this.handleConfirm}>确定</div>
         </div>
       </Fragment>

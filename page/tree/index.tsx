@@ -35,7 +35,7 @@ const init:(data:Array<IniType>, parent?:IniType) => Array<IniType> = (data, par
 const initData:Array<IniType> = init([
   {
     key: 'a1',
-    value: 'sony',
+    value: 'a1',
     children: [
       { key: 'a21', value: 'a21' },
       { key: 'a22', value: 'a22' },
@@ -47,7 +47,7 @@ const initData:Array<IniType> = init([
   },
   {
     key: 'b1',
-    value: 'haier',
+    value: 'b1',
     children: [
       {
         key: 'b21',
@@ -81,8 +81,8 @@ const initData:Array<IniType> = init([
       { key: 'b26', value: 'b26' },
     ],
   },
-  { key: 'c1', value: 'appple' },
-  { key: 'd1', value: 'huawei' },
+  { key: 'c1', value: 'c1' },
+  { key: 'd1', value: 'd1' },
 ]);
 
 const Cascader = () => {
