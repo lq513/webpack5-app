@@ -19,7 +19,7 @@ module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
-        test: /\.(t|j)sx?/,
+        test: /\.(t|j)sx?$/,
         // use: 'awesome-typescript-loader',
         use: ['babel-loader'],
         exclude: /node_modules/,
