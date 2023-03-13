@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, TouchEvent, MouseEvent } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Button, ImageViewer } from 'antd-mobile';
 import styles from './index.less';
 
@@ -139,7 +140,7 @@ const Autograph = () => {
           onMouseMove={handleMousemove}
         />
         <div className={styles.optionsBox}>
-          <b>Line width : </b>
+          <b><FormattedMessage id="line-width" /> : </b>
           <select defaultValue={selected1} onChange={(e) => { setS1(+e.target.value); }}>
             <option value={1}>1</option>
             <option value={3}>3</option>
@@ -149,7 +150,7 @@ const Autograph = () => {
             <option value={11}>11</option>
           </select>
           &nbsp;
-          <b>Color : </b>
+          <b><FormattedMessage id="color" /> : </b>
           <select defaultValue="black" onChange={(e) => { setS2(e.target.value); }} className={styles.colorSelect}>
             <option value="black">balck</option>
             <option value="blue">blue</option>
@@ -159,9 +160,13 @@ const Autograph = () => {
             <option value="gray">gray</option>
           </select>
           &nbsp;
-          <Button color="primary" className={styles.btn} onClick={handleSave}>保存</Button>
+          <Button color="primary" className={styles.btn} onClick={handleSave}>
+            <FormattedMessage id="save" />
+          </Button>
           &nbsp;
-          <Button color="danger" className={styles.btn} onClick={clear}>清空画板</Button>
+          <Button color="danger" className={styles.btn} onClick={clear}>
+            <FormattedMessage id="clear" />
+          </Button>
         </div>
       </div>
       <div className={styles.downloadBox}>

@@ -71,8 +71,9 @@ html {
   }
 }
 
-// antd-mobile
-:root:root {
+// antd-mobile（添加* 提高样式优先级，否则暗色模式 dark 颜色不生效）
+:root:root *{
   --adm-color-primary: #ff4570;
   --adm-color-warning: #797979;
+  --adm-color-background: rgb(var(--grey-0-rgb));
 }

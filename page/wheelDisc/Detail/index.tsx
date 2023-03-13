@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Toast, Swiper } from 'antd-mobile';
 import axios from 'axios';
 import Modal from '../Modal';
@@ -204,7 +205,10 @@ const WheelDiscDetail = () => {
       <div className={styles.topBox}>
         <div className={styles.games}>
           <div className={styles.pointer}>
-            <div className={styles.times}>抽奖<span>还剩{lotteryTimes}次</span></div>
+            <div className={styles.times}>
+              <FormattedMessage id="lottery" />
+              <span>还剩{lotteryTimes}次</span>
+            </div>
             <img src={require('../img/pointer.png')} alt="" onClick={drawLottery} />
           </div>
           <Games

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Button } from 'antd-mobile';
+import { FormattedMessage } from 'react-intl';
 
 // 测试css是否被tree shaking
 import './index.css';
@@ -32,7 +33,9 @@ const Test = () => {
   return (
     <>
       {/* <img src={cat} /> */}
-      <h2 className="title">测试标题</h2>
+      <h2 className="title">
+        <FormattedMessage id="title" />
+      </h2>
       <p className="paragraph">{text.toString()}</p>
       <div id="ignore" style={{ padding: '10px', lineHeight: '1.1', color: 'var(--grey-9-rgb)' }}>测试css</div>
       <Button color="warning" className="btn">test antd</Button>
