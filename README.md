@@ -32,6 +32,7 @@
 3. react-refresh
 4. 友好的换肤功能
 5. tree shaking
+6. i18n
 
 # babel配置对应打包体积
 babel配置|size
