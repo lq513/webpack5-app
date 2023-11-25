@@ -47,7 +47,7 @@ module.exports = (env) => {
     devServer: {
       port: 9000,
       hot: true, // v4后不用引入webpack.HotModuleReplacementPlugin
-      open: true,
+      // open: true,
       // When using the HTML5 History API, the index.html page will likely have to be served in place of any 404 responses.
       historyApiFallback: true,
       allowedHosts: 'all',
