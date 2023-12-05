@@ -47,12 +47,12 @@ const testData = {
 
 const testData1 = [
   {
-    phone: 18638233576,
-    rewardName: 'sdaf',
+    phone: '18xxxxxxx01',
+    rewardName: 'xx',
   },
   {
-    phone: 18638233572,
-    rewardName: 'sdaf12',
+    phone: '17xxxxxxx01',
+    rewardName: 'xx2',
   },
 ];
 
@@ -229,7 +229,7 @@ const WheelDiscDetail = () => {
                 {
                   winnerInfo.map(v => (
                     <Swiper.Item key={Math.random()}>
-                      恭喜 {v.phone} 获得{v.rewardName}
+                      <FormattedMessage id="congrats" /> {v.phone} <FormattedMessage id="win" /> {v.rewardName}
                     </Swiper.Item>
                   ))
                 }

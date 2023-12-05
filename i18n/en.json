@@ -13,5 +13,13 @@
   "line-width": "line width",
   "color": "color",
   "lottery": "lottery",
-  "prize": "prize"
+  "prize": "prize",
+  "black": "black",
+  "blue": "blue",
+  "red": "red",
+  "green": "green",
+  "yellow": "yellow",
+  "gray": "gray",
+  "congrats": "congratulation",
+  "win": "winning"
 }

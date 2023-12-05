@@ -13,5 +13,13 @@
   "line-width": "线宽",
   "color": "颜色",
   "lottery": "抽奖",
-  "prize": "奖品"
+  "prize": "奖品",
+  "black": "黑",
+  "blue": "蓝",
+  "red": "红",
+  "green": "绿",
+  "yellow": "黄",
+  "gray": "灰",
+  "congrats": "恭喜",
+  "win": "获得"
 }
