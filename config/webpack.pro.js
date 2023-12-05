@@ -1,7 +1,7 @@
 // const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-// const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 // https://webpack.docschina.org/guides/output-management/#the-manifest
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
@@ -51,13 +51,21 @@ module.exports = merge(baseConfig, {
     },
     // 压缩代码
     minimizer: [
+      new TerserPlugin({
+        minify: TerserPlugin.swcMinify,
+        // `terserOptions` options will be passed to `swc` (`@swc/core`)
+        // Link to options - https://swc.rs/docs/config-js-minify
+        terserOptions: {},
+      }),
+
+      
       // new TerserPlugin({
       //   parallel: true,
       //   terserOptions: {
       //     // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
       //   },
       // }),
-      '...', // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
+      // '...', // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`)
       new CssMinimizerPlugin(), // webpack@4中使用optimize-css-assets-webpack-plugin
     ],
   },
