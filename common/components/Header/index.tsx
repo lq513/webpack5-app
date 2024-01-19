@@ -113,6 +113,7 @@ const Header = () => {
               setAnimationPlayState('running');
             }}
             onMouseDown={(e) => {
+              e.preventDefault()
               console.log(e.clientX, e.clientY);
               
               // setPosition({ x: e.clientX - 25, y: e.clientY - 25 });
