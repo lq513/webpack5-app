@@ -58,7 +58,7 @@ module.exports = {
                 // auto: (src) => {
                 //   console.log(src, '===src');
                 // },
-                auto: /(page\\.*)|(common\\components\\.*)/, // page 目录开启css modules
+                auto: /(page(\\|\/).*)|(common(\\|\/)components(\\|\/).*)/, // page 目录开启css modules
                 localIdentName: '[folder]-[local]-[hash:base64:3]', // path/name/local/hash
               },
             },

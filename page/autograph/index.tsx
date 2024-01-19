@@ -151,13 +151,13 @@ const Autograph = () => {
           </select>
           &nbsp;
           <b><FormattedMessage id="color" /> : </b>
-          <select defaultValue="black" onChange={(e) => { setS2(e.target.value); }} className={styles.colorSelect}>
-            <option value="black">balck</option>
-            <option value="blue">blue</option>
-            <option value="red">red</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
-            <option value="gray">gray</option>
+          <select defaultValue={selected2} onChange={(e) => { setS2(e.target.value); }} className={styles.colorSelect}>
+            <option value="black"><FormattedMessage id="black" /></option>
+            <option value="blue"><FormattedMessage id="blue" /></option>
+            <option value="red"><FormattedMessage id="red" /></option>
+            <option value="green"><FormattedMessage id="green" /></option>
+            <option value="yellow"><FormattedMessage id="yellow" /></option>
+            <option value="gray"><FormattedMessage id="gray" /></option>
           </select>
           &nbsp;
           <Button color="primary" className={styles.btn} onClick={handleSave}>

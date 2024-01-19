@@ -172,8 +172,8 @@ const Header = () => {
         <PickerView
           columns={[
             [
-              { label: '简体中文', value: 'zh' },
               { label: 'Englis', value: 'en' },
+              { label: '简体中文', value: 'zh' },
             ],
           ]}
           // value={value}
