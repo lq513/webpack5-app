@@ -22,10 +22,9 @@
 1. 除了 './common/style' 下的样式文件和所有的.css文件均会被tree-shaking;
 2. 生产环境css的sourceMap生成取决于devtool选项
 3. 打包后如有报错（Uncaught ReferenceError: $RefreshSig$ is not defined）删除configcache文件后重试
-4. node version: 14
+4. <b>node version: 14</b>
 
 # aim
-6. 生产环境关闭react-dev-tools
 
 # feature
 1. react-router v6
