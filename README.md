@@ -33,6 +33,7 @@
 4. 友好的换肤功能
 5. tree shaking
 6. i18n
+7. 基于suspense的skeleton
 
 # babel配置对应打包体积
 babel配置|size
