@@ -57,7 +57,7 @@ const Header = () => {
   const logoRef = useRef<HTMLImageElement>(null!);
 
   const { locale, setLocale } = useContext(LangContext);
-  console.log(locale, setLocale);
+  // console.log(locale, setLocale);
   
   useMemo(() => {
     const theme = localStorage.getItem('theme');

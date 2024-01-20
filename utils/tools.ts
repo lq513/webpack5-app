@@ -50,4 +50,21 @@ const isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|ios|iOS|iPad|Ba
  */
 const angleToArc = (ang: number) => Math.PI / 180 * ang;
 
-export { a, handleTheme, handleSourceCode, chooseLocale, isMobile, angleToArc };
+// delay
+class Sleep {
+  public timeout: number;
+
+  constructor(timeout: number) {
+    this.timeout = timeout;
+  }
+
+  then(resolve, reject) {
+    const startTime = Date.now();
+    setTimeout(
+      () => resolve(Date.now() - startTime),
+      this.timeout
+    );
+  }
+}
+
+export { a, handleTheme, handleSourceCode, chooseLocale, isMobile, angleToArc, Sleep };

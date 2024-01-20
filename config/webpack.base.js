@@ -35,6 +35,7 @@ module.exports = {
       'style': path.resolve(__dirname, '../common/style'),
       'assets': path.resolve(__dirname, '../common/assets'),
       'i18n': path.resolve(__dirname, '../i18n'),
+      'skel': path.resolve(__dirname, '../skeleton'),
     },
   },
   module: {
@@ -104,8 +105,9 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.txt$/,
+        test: /\.txt|\.html$/,
         type: 'asset/source', // 原样输出
+        exclude: /index.html/,
       },
     ],
   },

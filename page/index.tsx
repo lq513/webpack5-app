@@ -2,6 +2,7 @@ import React, { Suspense, useState, createContext, useEffect, useMemo } from 're
 import ReactDOM from 'react-dom/client';
 import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import Skeleton from 'coms/Skeleton'; 
 import routesConfig from './routesConfig';
 import zh from 'i18n/zh.json';
 import en from 'i18n/en.json';
@@ -54,7 +55,7 @@ const Root = () => {
   return (
     <LangContext.Provider value={contextValue}>
       <RawIntlProvider value={intl}>
-        <Suspense fallback="加载中...">
+        <Suspense fallback={<Skeleton />}>
           <Router>
             <RoutesConfig/>
           </Router>

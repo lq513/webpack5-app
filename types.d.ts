@@ -3,6 +3,7 @@ declare module '*.gif';
 declare module '*.svg';
 declare module '*.png';
 declare module '*.txt';
+declare module '*.html';
 
 declare const $DEV:boolean;
 

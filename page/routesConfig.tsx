@@ -1,7 +1,8 @@
 import React, { lazy } from 'react';
+import { Sleep } from '@/tools';
 
 const Home = lazy(() => import('./home'));
-const WheelDisc = lazy(() => import('./wheelDisc/Detail'));
+const WheelDisc = lazy(() => import('./wheelDisc/Detail').then(async (res) => { await new Sleep(1000); return res; }));
 const Test = lazy(() => import('./test'));
 // const Task = lazy(() => import('./task'));
 const Tree = lazy(() => import('./tree'));

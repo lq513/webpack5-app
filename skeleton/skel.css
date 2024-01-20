@@ -1,0 +1,20 @@
+@keyframes skel-loading {
+  0% {
+      background-position: 100% 50%
+  }
+
+  to {
+      background-position: 0 50%
+  }
+}
+
+.skeleton-animated {
+  background: linear-gradient(90deg,hsla(0,0%,74.5%,.2) 25%,hsla(0,0%,50.6%,.24) 37%,hsla(0,0%,74.5%,.2) 63%);
+  background-size: 400% 100%;
+  animation: skel-loading 1.4s ease infinite;
+}
+
+.skel-line {
+  background: #fff;
+  height: 1px;
+}
