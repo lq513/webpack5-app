@@ -6,6 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 // baseConfig.module.rules[1].use[1].options.modules.localIdentName = '[hash:base64]';
 
@@ -31,6 +32,12 @@ module.exports = merge(baseConfig, {
     new WebpackManifestPlugin(),
     new webpack.DefinePlugin({
       $DEV: 'false',
+    }),
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 4096, // 只有文件大小大于这个值的才会被压缩
+      minRatio: 0.8,
     }),
   ],
   optimization: {
