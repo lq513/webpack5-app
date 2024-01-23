@@ -31,8 +31,8 @@
 # aim
 
 # feature
-1. react-router v6
-2. 基于路由 dynamic
+1. react-router v6 ｜ react18 ｜ webpack v5
+2. 基于路由的动态导入
 3. react-refresh
 4. 友好的换肤功能
 5. tree shaking
@@ -41,6 +41,8 @@
 为了尽量减少白屏时间，入口js需要尽量的小，此方案依赖于react运行时、react-router所以将这两个依赖和入口文件放在一个包中，此包加载完毕即可看见骨架屏（这两个依赖比较固定，入口文件需要频繁修改的话，可以把他们分开，依赖浏览器缓存、gzip等技术白屏到骨架屏的时间会很小）。等待其他资源加载完成，react会自动切换页面替换掉骨架屏。
 <img src="./public/reademe_split_chunk_detail.png">
 <img src="./public/reademe_ display_skel.png">
+
+
 
 # babel配置对应打包体积
 babel配置|size

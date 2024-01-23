@@ -3,8 +3,8 @@ import { FormattedMessage } from 'react-intl';
 import { Button, ImageViewer } from 'antd-mobile';
 import styles from './index.less';
 
-let lastX:number = 0;
-let lastY:number = 0;
+let lastX = 0;
+let lastY = 0;
 let ratio: number = 1; // 缩放比例
 
 interface CreateImgType {
@@ -55,14 +55,14 @@ const Autograph = () => {
   }, []);
 
   // 鼠标
-  const handleMousedown = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleMousedown = (event: MouseEvent<HTMLCanvasElement>) => {
     const box = boxRef.current;
     // console.log(box.offsetLeft, c.offsetLeft);
     mousePressed = true;
     Draw(event.pageX - box.offsetLeft, event.pageY - box.offsetTop + 1, false);
   };
 
-  const handleMousemove = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleMousemove = (event: MouseEvent<HTMLCanvasElement>) => {
     const box = boxRef.current;
     if (mousePressed) {
       Draw(event.pageX - box.offsetLeft, event.pageY - box.offsetTop + 1, true);
@@ -74,7 +74,7 @@ const Autograph = () => {
   };
 
   // 触摸屏
-  const handleStart = (event: TouchEvent<HTMLButtonElement>) => {
+  const handleStart = (event: TouchEvent<HTMLCanvasElement>) => {
     const box = boxRef.current;
     console.log(1);
     if (event.targetTouches.length == 1) {
@@ -85,7 +85,7 @@ const Autograph = () => {
     }
   };
 
-  const handleMove = (event: TouchEvent<HTMLButtonElement>) => {
+  const handleMove = (event: TouchEvent<HTMLCanvasElement>) => {
     const box = boxRef.current;
     console.log(2);
     if (event.targetTouches.length == 1) {
@@ -98,7 +98,7 @@ const Autograph = () => {
 
   };
 
-  const handleEne = (event: TouchEvent<HTMLButtonElement>) => {
+  const handleEne = (event: TouchEvent<HTMLCanvasElement>) => {
     console.log(3, event.targetTouches);
     // if (event.targetTouches.length === 1) {
       // event.preventDefault(); // 阻止浏览器默认事件，防止手写的时候拖动屏幕，重要

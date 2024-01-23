@@ -174,7 +174,7 @@ const WheelDiscDetail = () => {
         }
         return ca + dv;
       });
-    }, 30);
+    }, 22);
     axios.get('/activity/lottery')
       .then((res) => {
         const { chance = 0, reward = {} } = res.data;
