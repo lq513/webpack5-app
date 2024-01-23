@@ -1,9 +1,13 @@
+[![node][node]][node-url]
+
 # start
 > npm install
 
 > npm run dev
 
 > npm run build
+
+> npm run build-analyze
 
 # routes
 ├─page                   # 活动页面 <br />
@@ -33,7 +37,10 @@
 4. 友好的换肤功能
 5. tree shaking
 6. i18n
-7. 基于suspense的skeleton
+7. 基于suspense的skeleton（前端处理的骨架屏）
+为了尽量减少白屏时间，入口js需要尽量的小，此方案依赖于react运行时、react-router所以将这两个依赖和入口文件放在一个包中，此包加载完毕即可看见骨架屏（这两个依赖比较固定，入口文件需要频繁修改的话，可以把他们分开，依赖浏览器缓存，gzip等技术白屏到骨架屏的时间会很小），会加载其他资源，加载完成react会自动切换页面替换掉骨架屏。
+<img src="./public/reademe_split_chunk_detail.png">
+<img src="./public/reademe_ display_skel.png">
 
 # babel配置对应打包体积
 babel配置|size
@@ -61,3 +68,6 @@ loader|es6-es5|class|类装饰器|api
 ---|:--:|:--:|:--:|---:
 babel|preset-env|preset-env||plugin
 ts|target:es5|target:es5|✔|❌
+
+[node]: https://img.shields.io/badge/node-14-blue
+[node-url]: https://nodejs.org

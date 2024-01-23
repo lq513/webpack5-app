@@ -37,11 +37,11 @@ module.exports = (env) => {
         {
           test: /\.(t|j)sx?$/,
           use: {
-            // loader: 'babel-loader',
+            loader: 'babel-loader',
             // options: { transpileOnly: true },
             // -------------
-            loader: 'swc-loader',
-            options: { parseMap: true },
+            // loader: 'swc-loader',
+            // options: { parseMap: true },
             // -------------
           },
           exclude: /node_modules/,

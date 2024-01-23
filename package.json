@@ -1,5 +1,5 @@
 {
-  "name": "rtool",
+  "name": "react18-showcase",
   "version": "1.0.0",
   "description": "",
   "main": "page/index.tsx",
@@ -81,8 +81,8 @@
     "dev": "cross-env NODE_ENV=development webpack serve -c config/webpack.dev.js",
     "devserver": "webpack-dev-server --hot --open --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.pro.js --progress=profile",
-    "build-test": "webpack --config config/webpack.pro.js --analyze",
-    "btest": "webpack --config config/webpack.pro.js --mode development --analyze"
+    "build-analyze": "webpack --config config/webpack.pro.js --analyze",
+    "btest": "cross-env NODE_ENV=production webpack --config config/webpack.pro.js --mode development --analyze"
   },
   "author": "",
   "license": "ISC",

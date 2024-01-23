@@ -1,9 +1,11 @@
 module.exports = api => {
   // https://babeljs.io/docs/en/config-files#apienv
-  const dev = api.env('development'); // node -> NODE_ENV
+  // const dev = api.env('development'); // node -> NODE_ENV
+  const dev = process.env.NODE_ENV === 'development'
   // This caches the Babel config by environment.
   api.cache.using(() => process.env.NODE_ENV);
   console.log(
+    process.env.NODE_ENV,
     '\x1b[91m',
     '\nbabel-api-加载react-refresh/babel插件-NODE_ENV -->',
     dev,
