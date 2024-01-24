@@ -21,5 +21,7 @@
   "yellow": "黄",
   "gray": "灰",
   "congrats": "恭喜",
-  "win": "获得"
+  "win": "获得",
+  "mobile": "移动端",
+  "desktop": "桌面端"
 }

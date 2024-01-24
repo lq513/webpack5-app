@@ -1,7 +1,7 @@
-import React, { useState, useMemo, useRef, useCallback, useContext } from 'react';
+import React, { useState, useMemo, useRef, useCallback, useContext, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { Switch, Popup, PickerView } from 'antd-mobile';
+import { Switch, Popup, PickerView, Collapse } from 'antd-mobile';
 import { AppstoreOutline } from 'antd-mobile-icons';
 import { handleTheme } from '@/tools';
 import Sun from 'assets/sun.svg';
@@ -15,37 +15,46 @@ import './index.css';
 
 const navigation = [
   {
-    path: '/test',
-    name: <FormattedMessage id='test' />,
-  },
-  {
-    path: '/task',
-    name: <FormattedMessage id='task' />,
-  },
-  {
-    path: '/autograph',
-    name: <FormattedMessage id='autograph' />,
-  },
-  {
-    path: '/wheeldisc',
-    name: <FormattedMessage id='wheeldisc' />,
-  },
-  {
-    path: '/tree',
-    name: <FormattedMessage id='cascader' />,
-  },
-  {
-    path: '/clock',
-    name: <FormattedMessage id='clock' />,
-  },
-  {
-    path: '/canvas',
-    name: <FormattedMessage id='canvas' />,
-  },
-  {
-    path: '/nothing',
-    name: '404',
-  },
+    platform: <FormattedMessage id='mobile' />,
+    pages: [
+      {
+        path: '/test',
+        name: <FormattedMessage id='test' />,
+      },
+      {
+        path: '/task',
+        name: <FormattedMessage id='task' />,
+      },
+      {
+        path: '/autograph',
+        name: <FormattedMessage id='autograph' />,
+      },
+      {
+        path: '/wheeldisc',
+        name: <FormattedMessage id='wheeldisc' />,
+      },
+      {
+        path: '/clock',
+        name: <FormattedMessage id='clock' />,
+      },
+      {
+        path: '/canvas',
+        name: <FormattedMessage id='canvas' />,
+      },
+      {
+        path: '/nothing',
+        name: '404',
+      },
+    ],
+  }, {
+    platform: <FormattedMessage id='desktop' />,
+    pages: [
+      {
+        path: '/tree',
+        name: <FormattedMessage id='cascader' />,
+      },
+    ]
+  }
 ];
 
 const Header = () => {
@@ -67,8 +76,8 @@ const Header = () => {
     setValue(true);
   }, []);
 
-  const handleMove = useCallback((moveEvent) => {
-    const { clientX, clientY } = moveEvent;
+  const handleMove = useCallback((moveEvent: Event) => {
+    const { clientX, clientY } = moveEvent as unknown as MouseEvent;
     const { width, height } = logoRef.current.style;
     const w = parseInt(width);
     const h = parseInt(height);
@@ -94,10 +103,15 @@ const Header = () => {
               left: position.x,
               cursor: 'grabbing',
               pointerEvents: 'none',
+              transition: 'width 0.3s, height 0.3s',
               width: '50px',
               height: '50px',
             } : {
-              animation: 'roll 5s infinite ease-out',
+              // don't mix shorthand and non-shorthand properties
+              animationName: 'roll',
+              animationDuration: '5s',
+              animationTimingFuncton: 'ease-out',
+              animationIterationCount: 'infinite',
             } }}
             src='./static/favicon.png'
             alt='icon'
@@ -122,6 +136,7 @@ const Header = () => {
               document.addEventListener('mouseup', () => {
                 console.log('onMouseUp');
                 document.body.style = '';
+                setAnimationPlayState('running');
                 document.removeEventListener('mousemove', handleMove, false);
                 setPosition(null);
               }, { once: true });
@@ -154,11 +169,22 @@ const Header = () => {
           setVisible(false);
         }}
       >
-        { navigation.map((v, i) => (
-          <Link to={v.path} key={v.path} >
-            {v.name}
-          </Link>
-        ))}
+        {/* 页面导航 */}
+        <Collapse accordion >
+          { navigation.map((item, i) => {
+            return (
+              <Collapse.Panel title={item.platform} key={i}>
+                {
+                  item.pages.map((v) => (
+                    <Link to={v.path} key={v.path} >
+                    {v.name}
+                    </Link>
+                  ))
+                }
+              </Collapse.Panel>
+            )
+          })}
+        </Collapse>
         <br />
       </Popup>
       <Popup

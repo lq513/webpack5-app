@@ -21,5 +21,7 @@
   "yellow": "yellow",
   "gray": "gray",
   "congrats": "congratulation",
-  "win": "winning"
+  "win": "winning",
+  "mobile": "mobile",
+  "desktop": "desktop"
 }

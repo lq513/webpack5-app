@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Sleep } from '@/tools';
 
 const Home = lazy(() => import('./home'));
+// 延迟1s
 const WheelDisc = lazy(() => import('./wheelDisc/Detail').then(async (res) => { await new Sleep(1000); return res; }));
 const Test = lazy(() => import('./test'));
 // const Task = lazy(() => import('./task'));
