@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useRef, useCallback, useContext, MouseEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { Switch, Popup, PickerView, Collapse } from 'antd-mobile';
+import { Switch, Popup, PickerView, Button } from 'antd-mobile';
 import { AppstoreOutline } from 'antd-mobile-icons';
 import { handleTheme } from '@/tools';
 import Sun from 'assets/sun.svg';
@@ -38,10 +38,6 @@ const navigation = [
         name: <FormattedMessage id='clock' />,
       },
       {
-        path: '/canvas',
-        name: <FormattedMessage id='canvas' />,
-      },
-      {
         path: '/nothing',
         name: '404',
       },
@@ -52,6 +48,10 @@ const navigation = [
       {
         path: '/tree',
         name: <FormattedMessage id='cascader' />,
+      },
+      {
+        path: '/canvas',
+        name: <FormattedMessage id='canvas' />,
       },
     ]
   }
@@ -170,21 +170,22 @@ const Header = () => {
         }}
       >
         {/* 页面导航 */}
-        <Collapse accordion >
-          { navigation.map((item, i) => {
-            return (
-              <Collapse.Panel title={item.platform} key={i}>
-                {
-                  item.pages.map((v) => (
-                    <Link to={v.path} key={v.path} >
-                    {v.name}
-                    </Link>
-                  ))
-                }
-              </Collapse.Panel>
-            )
-          })}
-        </Collapse>
+        { navigation.map((item, i) => {
+          return (
+            <>
+              <div className="platform">{item.platform}</div>
+              {
+                item.pages.map((v) => (
+                  <Link to={v.path} key={v.path} >
+                    <Button block size="mini" fill="none">
+                      {v.name}
+                    </Button>
+                  </Link>
+                ))
+              }
+            </>
+          )
+        })}
         <br />
       </Popup>
       <Popup

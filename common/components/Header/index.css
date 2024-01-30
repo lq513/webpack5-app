@@ -59,6 +59,15 @@
   }
 }
 .header-popBox a {
-  display: block;
-  padding: 8px 10px;
+  /* display: block; */
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+.header-popBox .platform {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background: var(--adm-color-primary);
+  color: rgb(var(--grey-2-rgb));
 }
