@@ -36,7 +36,7 @@
     "style-loader": "^3.3.0",
     "swc-loader": "^0.2.3",
     "url-loader": "^4.1.1",
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.3",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-manifest-plugin": "^4.0.2",
     "webpack-merge": "^5.8.0",
