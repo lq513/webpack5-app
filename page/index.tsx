@@ -1,11 +1,11 @@
-import React, { Suspense, useState, createContext, useEffect, useMemo } from 'react';
+import React, { Suspense, useState, useEffect, useMemo } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
-import Skeleton from 'coms/Skeleton'; 
+import Skeleton from 'coms/Skeleton';
 import routesConfig from './routesConfig';
-import zh from 'i18n/zh.json';
-import en from 'i18n/en.json';
+import messages from 'i18n/index';
+import LangContext, { initialLocale } from './context';
 
 // import '@formatjs/intl-numberformat/polyfill';
 // import '@formatjs/intl-datetimeformat/add-all-tz';
@@ -16,16 +16,9 @@ import en from 'i18n/en.json';
 
 import 'style/index.less';
 
-const initialLocale = 'en';
-export const messages: Record<string, Record<string, string>> = {
-  en,
-  zh,
-};
 const cache = createIntlCache();
 
 const RoutesConfig = () => useRoutes(routesConfig);
-
-export const LangContext = createContext<{ locale: string; setLocale: any }>({ locale: initialLocale, setLocale: null });
 
 const Root = () => {
   const [locale, setLocale] = useState(initialLocale);

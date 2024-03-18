@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useCallback, useContext, MouseEvent } from 'react';
+import React, { useState, useMemo, useRef, useCallback, useContext, MouseEvent, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { Switch, Popup, PickerView, Button } from 'antd-mobile';
@@ -8,7 +8,7 @@ import Sun from 'assets/sun.svg';
 import Moon from 'assets/moon.svg';
 import lang from 'assets/lang.svg';
 
-import { LangContext } from '../../../page/index';
+import LangContext from '../../../page/context';
 
 
 import './index.css';
@@ -53,8 +53,8 @@ const navigation = [
         path: '/canvas',
         name: <FormattedMessage id='canvas' />,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 const Header = () => {
@@ -172,7 +172,7 @@ const Header = () => {
         {/* 页面导航 */}
         { navigation.map((item, i) => {
           return (
-            <>
+            <Fragment key={i}>
               <div className="platform">{item.platform}</div>
               {
                 item.pages.map((v) => (
@@ -183,8 +183,8 @@ const Header = () => {
                   </Link>
                 ))
               }
-            </>
-          )
+            </Fragment>
+          );
         })}
         <br />
       </Popup>
