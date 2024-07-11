@@ -10,17 +10,25 @@
 > npm run build-analyze
 
 # routes
-├─page                   # 活动页面 <br />
-│  ├─autograph           # 签名 <br />
-│  ├─clock               # 时钟 <br />
-│  ├─home                # 主页面 <br />
-│  ├─task                # 录屏测试 <br />
-│  ├─test                # 测试功能 <br />
-│  ├─tree                # 树组件（适用于pc端） <br />
-│  ├─wheelDisc           # 转盘抽奖 <br />
-│  └─routesConfig        # 路由配置 <br />
-├─public                 # 静态资源 <br />
-├─dps.config.js          # 骨架配置 <br />
+```javascript
+├─common                 # 公共
+│ ├─assets               # 公共文件
+│ ├─components           # 公共组件
+│ └─style                # 全局样式
+├─i18n                   # 国际化配置
+├─page                   # 活动页面
+│  ├─autograph           # 签名
+│  ├─clock               # 时钟
+│  ├─home                # 主页面
+│  ├─task                # 录屏测试
+│  ├─test                # 测试功能
+│  ├─tree                # 树组件（适用于pc端）
+│  ├─wheelDisc           # 转盘抽奖
+│  └─routesConfig        # 路由配置
+├─skeleton               # 骨架静态页面
+├─public                 # 静态资源
+├─dps.config.js          # 骨架配置（弃用）
+```
 
 # notice
 1. 除了 './common/style' 下的样式文件和所有的.css文件均会被tree-shaking;
