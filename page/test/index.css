@@ -21,7 +21,9 @@ p.paragraph {
   width: 100%;
   padding: 5px;
   text-align: center;
-  color: rgb(var(--light-primary-2-rgb));
-  background: rgba(var(--dsw-primary-standard-rgb), 0.7);
+  /* color: rgb(var(--light-primary-2-rgb)); */
+  /* background: rgba(var(--dsw-primary-standard-rgb), 0.7); */
+  color: #fff;
+  background: var(--adm-color-primary);
   font-size: 9px;
 }
