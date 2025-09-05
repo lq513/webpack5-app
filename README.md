@@ -41,7 +41,7 @@ https://hahademo.netlify.app/
 1. 除了 './common/style' 下的样式文件和所有的.css文件均会被tree-shaking;
 2. 生产环境css的sourceMap生成取决于devtool选项
 3. 打包后如有报错（Uncaught ReferenceError: $RefreshSig$ is not defined）删除configcache文件后重试
-4. <b>node version: 14+</b>
+4. <b>node version: 14</b>
 
 # aim
 
