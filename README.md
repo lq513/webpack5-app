@@ -8,6 +8,8 @@ https://hahademo.netlify.app/
 [![Star History Chart](https://api.star-history.com/svg?repos=lq513/webpack5-app&type=Timeline)](https://star-history.com/#lq513/webpack5-app&Timeline)
 
 # start
+
+## 本地开发
 > npm install
 
 > npm run dev
@@ -15,6 +17,32 @@ https://hahademo.netlify.app/
 > npm run build
 
 > npm run build-analyze
+
+## Docker 部署
+
+### 构建镜像
+```bash
+docker build -t webpack5-app .
+```
+
+### 运行容器
+```bash
+docker run -d -p 9000:80 --name webpack5-app-container webpack5-app
+```
+
+### 访问应用
+打开浏览器访问: http://localhost:9000
+
+### Docker 命令说明
+- **构建阶段**: 使用 `node:14` 基础镜像安装依赖并构建项目
+- **运行阶段**: 使用 `nginx:alpine` 轻量级镜像托管静态文件
+- **端口**: 容器内部 nginx 监听 80 端口，通过端口映射对外暴露 9000 端口
+- **文件**: 构建产物 `dist/` 目录被复制到 nginx 静态文件目录
+
+### 多阶段构建优势
+- **体积优化**: 最终镜像只包含运行时需要的文件，大大减小镜像体积
+- **安全性**: 生产环境不包含构建工具和源代码
+- **缓存优化**: 分层构建有利于 Docker 缓存机制
 
 # routes
 ```javascript
